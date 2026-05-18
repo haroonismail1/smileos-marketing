@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Founder Access — SmileOS for UK Dentists</title>
+  <meta name="description" content="Founder Access to SmileOS — the AI-assisted consultation platform built by a UK GDC-registered clinical director. 60-day free trial, no card required, founder pricing locked in for life." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy-soft: #1a2a42;
+      --body: #4a5970;
+      --muted: #8a9ab5;
+      --teal: #00b8a2;
+      --teal-deep: #00a290;
+      --teal-soft: #e6f7f5;
+      --gold: #c9a84c;
+      --gold-soft: #f5edd6;
+      --cream: #faf7f2;
+      --surface: #ffffff;
+      --border: rgba(10, 22, 40, 0.08);
+      --border-strong: rgba(10, 22, 40, 0.14);
+      --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.04);
+      --shadow-md: 0 4px 16px rgba(10, 22, 40, 0.06);
+      --shadow-lg: 0 16px 48px rgba(10, 22, 40, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 17px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── URGENCY STRIP ── */
+    .urgency-strip {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 11px 24px;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    .urgency-strip strong { color: var(--teal); font-weight: 700; }
+    .urgency-strip .dot { display: inline-block; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; margin: 0 12px; vertical-align: middle; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--navy); letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--teal); }
+    .nav-cta {
+      background: var(--navy); color: var(--surface);
+      padding: 11px 22px; border-radius: 10px;
+      font-size: 0.92rem; font-weight: 600;
+      transition: transform 0.15s ease, background 0.2s;
+    }
+    .nav-cta:hover { background: var(--teal); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 88px 48px 80px;
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal-soft); color: var(--teal-deep);
+      border: 1px solid rgba(0, 184, 162, 0.25);
+      border-radius: 999px; padding: 7px 16px;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.6px; text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-badge svg { width: 14px; height: 14px; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+      font-weight: 700; line-height: 1.05;
+      letter-spacing: -1px;
+      color: var(--navy);
+      margin-bottom: 26px;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal-deep); font-weight: 700; }
+    .hero-sub {
+      font-size: 1.25rem; color: var(--body);
+      line-height: 1.55; max-width: 540px;
+      margin-bottom: 36px;
+    }
+    .hero-ctas { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+    .btn-primary {
+      background: var(--teal); color: var(--surface);
+      padding: 18px 32px; border-radius: 12px;
+      font-size: 1.05rem; font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 184, 162, 0.3);
+      transition: transform 0.15s ease, box-shadow 0.2s, background 0.2s;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .btn-primary:hover { background: var(--teal-deep); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 184, 162, 0.4); }
+    .btn-primary svg { width: 18px; height: 18px; }
+    .btn-secondary {
+      color: var(--navy); font-size: 1rem; font-weight: 600;
+      padding: 16px 0; display: inline-flex; align-items: center; gap: 8px;
+      border-bottom: 2px solid var(--navy); transition: opacity 0.2s;
+    }
+    .btn-secondary:hover { opacity: 0.7; }
+    .hero-micro {
+      display: flex; align-items: center; gap: 18px;
+      font-size: 0.92rem; color: var(--body);
+    }
+    .hero-micro-item { display: flex; align-items: center; gap: 8px; }
+    .hero-micro-item svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; }
+
+    /* hero visual — founder card */
+    .hero-visual {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 24px; padding: 36px;
+      box-shadow: var(--shadow-lg); position: relative;
+    }
+    .hero-visual::before {
+      content: ''; position: absolute; top: -1px; left: 32px; right: 32px;
+      height: 3px; background: linear-gradient(90deg, var(--teal), var(--gold));
+      border-radius: 0 0 4px 4px;
+    }
+    .founder-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+      color: var(--surface); display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .founder-quote {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.3rem; line-height: 1.4; color: var(--navy);
+      margin-bottom: 24px;
+    }
+    .founder-name { font-weight: 700; color: var(--navy); font-size: 1rem; }
+    .founder-role { font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
+    .founder-tags {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .founder-tag {
+      font-size: 0.78rem; font-weight: 600; color: var(--navy);
+      background: var(--cream); padding: 6px 12px; border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 36px 48px;
+    }
+    .trust-bar-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    }
+    .trust-item {
+      display: flex; gap: 14px; align-items: center;
+    }
+    .trust-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--teal-soft); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal-deep);
+    }
+    .trust-icon svg { width: 22px; height: 22px; }
+    .trust-text h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .trust-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 96px 48px; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--teal-deep);
+      background: var(--teal-soft); border-radius: 999px;
+      padding: 7px 16px; margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.6px;
+      color: var(--navy); margin-bottom: 20px;
+    }
+    .section-title em { font-style: italic; color: var(--teal-deep); }
+    .section-sub {
+      font-size: 1.2rem; color: var(--body); line-height: 1.6;
+      max-width: 680px;
+    }
+    .section-head { text-align: center; margin: 0 auto 64px; max-width: 740px; }
+
+    /* ── FEATURE PILLS ── */
+    .features { background: var(--cream); }
+    .feature-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .feature-pill {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s, border-color 0.2s;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .feature-pill:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(0, 184, 162, 0.3); }
+    .feature-pill-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--teal-soft), var(--gold-soft));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal-deep);
+    }
+    .feature-pill-icon svg { width: 26px; height: 26px; }
+    .feature-pill h3 {
+      font-size: 1.15rem; font-weight: 700; color: var(--navy);
+      letter-spacing: -0.2px;
+    }
+    .feature-pill p {
+      font-size: 0.98rem; color: var(--body); line-height: 1.55;
+    }
+
+    /* ── WHY FOUNDER ── */
+    .why {
+      background: var(--surface);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .why-list { display: flex; flex-direction: column; gap: 28px; margin-top: 32px; }
+    .why-item { display: flex; gap: 18px; align-items: flex-start; }
+    .why-item-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--navy); color: var(--surface);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.95rem;
+    }
+    .why-item-content h4 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .why-item-content p { font-size: 1rem; color: var(--body); line-height: 1.55; }
+
+    .why-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: 24px; padding: 40px;
+      position: relative; overflow: hidden;
+    }
+    .why-card::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(0, 184, 162, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700; line-height: 1.25;
+      color: var(--navy); margin-bottom: 18px;
+      position: relative;
+    }
+    .why-card p {
+      font-size: 1.02rem; color: var(--body); line-height: 1.65;
+      margin-bottom: 14px; position: relative;
+    }
+    .why-card-signature {
+      margin-top: 24px; padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; gap: 14px;
+      position: relative;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how { background: var(--cream); }
+    .how-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      counter-reset: stepcount;
+    }
+    .how-step {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px;
+      position: relative;
+      counter-increment: stepcount;
+    }
+    .how-step::before {
+      content: counter(stepcount, decimal-leading-zero);
+      font-family: 'Playfair Display', serif;
+      font-size: 3.4rem; font-weight: 700;
+      color: var(--teal-soft); line-height: 1;
+      position: absolute; top: 24px; right: 28px;
+    }
+    .how-step h3 {
+      font-size: 1.25rem; font-weight: 700; color: var(--navy);
+      margin: 8px 0 12px; letter-spacing: -0.2px;
+      position: relative;
+    }
+    .how-step p { font-size: 1rem; color: var(--body); line-height: 1.6; }
+
+    /* ── PRICING / OFFER ── */
+    .offer {
+      background: var(--navy); color: var(--surface);
+      position: relative; overflow: hidden;
+    }
+    .offer::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 70% 30%, rgba(0, 184, 162, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse 50% 60% at 20% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .offer .section-inner { position: relative; }
+    .offer .section-title { color: var(--surface); }
+    .offer .section-title em { color: var(--teal); }
+    .offer .section-sub { color: rgba(255, 255, 255, 0.7); }
+    .offer .section-tag { background: rgba(0, 184, 162, 0.15); color: var(--teal); }
+
+    .offer-card {
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px; padding: 48px;
+      max-width: 720px; margin: 0 auto;
+      backdrop-filter: blur(10px);
+    }
+    .offer-rows { display: flex; flex-direction: column; gap: 16px; margin: 28px 0 32px; }
+    .offer-row {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 1.08rem; color: rgba(255, 255, 255, 0.9);
+    }
+    .offer-row svg { width: 22px; height: 22px; color: var(--teal); flex-shrink: 0; }
+    .offer-row strong { color: var(--surface); }
+    .offer-price-row {
+      display: flex; align-items: baseline; gap: 16px;
+      padding: 20px 0; margin-bottom: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .offer-price {
+      font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700;
+      color: var(--surface); line-height: 1;
+    }
+    .offer-price-strike { font-size: 1.4rem; color: var(--muted); text-decoration: line-through; }
+    .offer-price-suffix { color: rgba(255, 255, 255, 0.6); font-size: 1rem; }
+    .offer-cta { width: 100%; justify-content: center; padding: 20px; font-size: 1.1rem; }
+    .offer-fineprint {
+      text-align: center; font-size: 0.88rem; color: rgba(255, 255, 255, 0.5);
+      margin-top: 18px;
+    }
+
+    /* ── FAQ ── */
+    .faq { background: var(--cream); }
+    .faq-list {
+      max-width: 820px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .faq-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px 28px;
+      transition: border-color 0.2s;
+    }
+    .faq-item[open] { border-color: rgba(0, 184, 162, 0.3); }
+    .faq-item summary {
+      cursor: pointer; list-style: none;
+      font-size: 1.1rem; font-weight: 700; color: var(--navy);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; font-size: 1.6rem; font-weight: 400; color: var(--teal-deep);
+      flex-shrink: 0; transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p {
+      font-size: 1rem; color: var(--body); line-height: 1.65;
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+      color: var(--surface); text-align: center;
+    }
+    .final-cta .section-tag { background: rgba(255, 255, 255, 0.18); color: var(--surface); }
+    .final-cta .section-title { color: var(--surface); }
+    .final-cta .section-title em { color: var(--navy); }
+    .final-cta .section-sub { color: rgba(255, 255, 255, 0.92); margin: 0 auto 40px; }
+    .final-cta-btn {
+      background: var(--navy); color: var(--surface);
+      padding: 22px 44px; border-radius: 14px;
+      font-size: 1.15rem; font-weight: 700;
+      box-shadow: 0 10px 32px rgba(10, 22, 40, 0.3);
+      display: inline-flex; align-items: center; gap: 12px;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(10, 22, 40, 0.4); }
+    .final-cta-btn svg { width: 22px; height: 22px; }
+    .final-cta-micro {
+      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      margin-top: 28px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.9);
+    }
+    .final-cta-micro span { display: inline-flex; align-items: center; gap: 8px; }
+    .final-cta-micro svg { width: 18px; height: 18px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255, 255, 255, 0.6);
+      padding: 48px;
+    }
+    .footer-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--surface); }
+    .footer-logo span { color: var(--teal); }
+    .footer-text { font-size: 0.88rem; line-height: 1.55; max-width: 540px; }
+    .footer-text a { color: rgba(255, 255, 255, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      html { font-size: 16px; }
+      nav { padding: 16px 24px; }
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 56px 24px 60px; }
+      .hero-visual { order: 2; }
+      .trust-bar { padding: 28px 24px; }
+      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      section { padding: 72px 24px; }
+      .feature-grid { grid-template-columns: 1fr; gap: 16px; }
+      .why-grid { grid-template-columns: 1fr; gap: 48px; }
+      .how-grid { grid-template-columns: 1fr; gap: 20px; }
+      .offer-card { padding: 32px 24px; }
+      .offer-price { font-size: 2.4rem; }
+      footer { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .urgency-strip { font-size: 0.78rem; padding: 9px 16px; }
+      .urgency-strip .dot { margin: 0 8px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-sub { font-size: 1.08rem; }
+      .btn-primary { padding: 15px 24px; font-size: 0.98rem; }
+      .section-title { font-size: 1.9rem; }
+      .section-sub { font-size: 1.05rem; }
+      .feature-pill { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- URGENCY STRIP -->
+  <div class="urgency-strip">
+    <span class="dot"></span>
+    <strong>Founder Cohort:</strong> we're closing this round at our first 50 UK practices. Founder pricing locked in for life.
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">Smile<span>OS</span></a>
+    <a href="#claim" class="nav-cta">Claim Founder Access</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <div class="hero-badge">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+        Founder Access — Limited Cohort
+      </div>
+      <h1>The consultation platform <em>built by a dentist</em>, for dentists.</h1>
+      <p class="hero-sub">
+        SmileOS turns the consultation, consent, estimate, and treatment workflow into one clean flow. Built by a UK GDC-registered clinical director — and you can shape what we build next.
+      </p>
+      <div class="hero-ctas">
+        <a href="#claim" class="btn-primary">
+          Claim Founder Access
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+        <a href="#how" class="btn-secondary">See how it works</a>
+      </div>
+      <div class="hero-micro">
+        <span class="hero-micro-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          60 days free
+        </span>
+        <span class="hero-micro-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          No card required
+        </span>
+        <span class="hero-micro-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Cancel anytime
+        </span>
+      </div>
+    </div>
+
+    <aside class="hero-visual" aria-label="Founder card">
+      <div class="founder-avatar">HI</div>
+      <p class="founder-quote">"I built SmileOS because I was tired of the consultation feeling like the weakest part of my own practice. So I fixed it."</p>
+      <div class="founder-name">Haroon Ismail</div>
+      <div class="founder-role">Founder · GDC-registered Clinical Director</div>
+      <div class="founder-tags">
+        <span class="founder-tag">UK-built</span>
+        <span class="founder-tag">Dentist-led</span>
+        <span class="founder-tag">Direct line to the founder</span>
+      </div>
+    </aside>
+  </header>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar" style="padding-top: 36px; padding-bottom: 36px;">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 1.5a.75.75 0 01.75.75V4.5a.75.75 0 01-1.5 0V2.25A.75.75 0 0112 1.5zM5.636 4.136a.75.75 0 011.06 0l1.592 1.591a.75.75 0 01-1.061 1.06l-1.591-1.59a.75.75 0 010-1.061zm12.728 0a.75.75 0 010 1.06l-1.591 1.592a.75.75 0 01-1.06-1.061l1.59-1.591a.75.75 0 011.061 0zm-6.816 4.496a.75.75 0 01.82.311l5.228 7.917a.75.75 0 01-.777 1.148l-2.097-.43 1.045 3.9a.75.75 0 01-1.45.388l-1.044-3.899-1.601 1.42a.75.75 0 01-1.247-.606l.569-9.47a.75.75 0 01.554-.679z" clip-rule="evenodd"/></svg></div>
+        <div class="trust-text"><h4>Built by a dentist</h4><p>GDC-registered clinical director</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.75.75 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08z" clip-rule="evenodd"/></svg></div>
+        <div class="trust-text"><h4>UK-hosted data</h4><p>Tenant-scoped on every request</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.948 49.948 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.88 50.88 0 007.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 014.653-2.52.75.75 0 00-.65-1.352 56.123 56.123 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z"/><path d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 01-.46.71 47.87 47.87 0 00-8.105 4.342.75.75 0 01-.832 0 47.87 47.87 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 00.551-1.607 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.667 2.25 2.25 0 002.12 0z"/></svg></div>
+        <div class="trust-text"><h4>Real founder support</h4><p>Reply from Haroon, not a ticket queue</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 7.78a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z" clip-rule="evenodd"/></svg></div>
+        <div class="trust-text"><h4>60-day trial</h4><p>No card. Cancel any time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE PILLS -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-tag">What you get</span>
+        <h2 class="section-title">Everything between <em>"hello"</em> and treatment — in one flow.</h2>
+        <p class="section-sub">Built for cosmetic and orthodontic consultations. Skip the disconnected forms, half-finished notes, and consent paperwork chaos.</p>
+      </div>
+
+      <div class="feature-grid">
+
+        <div class="feature-pill">
+          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.25 4.5a3.75 3.75 0 117.5 0v8.25a3.75 3.75 0 11-7.5 0V4.5z"/><path d="M6 10.5a.75.75 0 01.75.75v1.5a5.25 5.25 0 1010.5 0v-1.5a.75.75 0 011.5 0v1.5a6.751 6.751 0 01-6 6.71v2.29h3a.75.75 0 010 1.5h-7.5a.75.75 0 010-1.5h3v-2.29a6.751 6.751 0 01-6-6.71v-1.5A.75.75 0 016 10.5z"/></svg></div>
+          <h3>AI-assisted clinical notes</h3>
+          <p>Dictate the consultation — get a structured note back. Edit, sign, and move on.</p>
+        </div>
+
+        <div class="feature-pill">
+          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.625 1.5H9a3.75 3.75 0 013.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 013.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 01-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875zm5.845 17.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V12a.75.75 0 00-1.5 0v4.19l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/><path d="M14.25 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0016.5 7.5h-1.875a.375.375 0 01-.375-.375V5.25z"/></svg></div>
+          <h3>Consent + estimate, signed in-chair</h3>
+          <p>Generate a personalised estimate, get treatment consent, all without leaving the consultation.</p>
+        </div>
+
+        <div class="feature-pill">
+          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clip-rule="evenodd"/></svg></div>
+          <h3>Patient pipeline</h3>
+          <p>See every consultation, its commitment status, and what's blocking it — at a glance.</p>
+        </div>
+
+        <div class="feature-pill">
+          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z"/></svg></div>
+          <h3>Treatment plan + ClinCheck</h3>
+          <p>Connect the consultation directly to your clear aligner and treatment plan workflow.</p>
+        </div>
+
+        <div class="feature-pill">
+          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"/></svg></div>
+          <h3>Multi-clinician dashboard</h3>
+          <p>Track your team's caseload, action lists, and Smile Train referrals from one screen.</p>
+        </div>
+
+        <div class="feature-pill">
+          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97-1.94.284-3.916.455-5.922.505a.39.39 0 00-.266.112L8.78 21.53A.75.75 0 017.5 21v-3.955a48.842 48.842 0 01-2.652-.316c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97z" clip-rule="evenodd"/></svg></div>
+          <h3>Loom-style walkthroughs</h3>
+          <p>Send patients an asynchronous video walkthrough of their treatment plan and estimate.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FOUNDER ACCESS -->
+  <section class="why">
+    <div class="section-inner">
+      <div class="why-grid">
+        <div>
+          <span class="section-tag">Why founder access</span>
+          <h2 class="section-title">Be one of the <em>first 50 practices</em> — and shape what we build next.</h2>
+          <div class="why-list">
+            <div class="why-item">
+              <div class="why-item-icon">01</div>
+              <div class="why-item-content">
+                <h4>Founder pricing locked in for life</h4>
+                <p>Whatever rate you start on stays your rate, even after public launch.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">02</div>
+              <div class="why-item-content">
+                <h4>Direct line to the founder</h4>
+                <p>WhatsApp the dentist building it. No ticket queue, no "raise it with support".</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-icon">03</div>
+              <div class="why-item-content">
+                <h4>You set the roadmap</h4>
+                <p>What founder cohort asks for, we build next. That's the whole deal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <h3>"Most consultation software is built by people who've never sat in the chair."</h3>
+          <p>I'm a UK GDC-registered clinical director. I built SmileOS because every existing tool either treated the consultation as a glorified PDF or buried it under twelve dropdowns.</p>
+          <p>If you sign up as a founder, you're not buying a finished product — you're buying a relationship with the dentist building it. That's it. That's the offer.</p>
+          <div class="why-card-signature">
+            <div class="founder-avatar" style="width: 48px; height: 48px; font-size: 1.1rem; margin: 0;">HI</div>
+            <div>
+              <div class="founder-name">Haroon Ismail</div>
+              <div class="founder-role">Founder, SmileOS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-tag">How it works</span>
+        <h2 class="section-title">Three steps. <em>No demo gauntlet.</em></h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <h3>Claim your spot</h3>
+          <p>Email Haroon directly. You'll get a reply the same day with a short call slot or your access link.</p>
+        </div>
+        <div class="how-step">
+          <h3>60 days, all features</h3>
+          <p>You get the full platform — consultations, consent, estimates, dashboard. No card. No "upgrade to unlock".</p>
+        </div>
+        <div class="how-step">
+          <h3>Lock in founder rate</h3>
+          <p>If it works for your practice, founder pricing stays your pricing — for as long as you're with us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER / PRICING -->
+  <section class="offer" id="claim">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-tag">The founder offer</span>
+        <h2 class="section-title">60 days free. <em>Founder pricing for life.</em></h2>
+        <p class="section-sub">No credit card. No commitment. The first 50 practices to claim founder access get this offer; after that we move to public pricing.</p>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-rows">
+          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>60 days free</strong> — every feature, no restrictions</span></div>
+          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>No credit card</strong> required up-front</span></div>
+          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>Founder pricing locked in</strong> — your rate, for life</span></div>
+          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>Direct line</strong> to Haroon throughout the trial</span></div>
+          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>Cancel any time</strong> — keep your data, walk away clean</span></div>
+        </div>
+
+        <div class="offer-price-row">
+          <span class="offer-price">£0</span>
+          <span class="offer-price-strike">£149/mo</span>
+          <span class="offer-price-suffix">for the first 60 days</span>
+        </div>
+
+        <a href="mailto:haroonismail87@gmail.com?subject=Founder%20Access%20%E2%80%94%20SmileOS&body=Hi%20Haroon%2C%0A%0AI%27d%20like%20to%20claim%20founder%20access%20to%20SmileOS.%0A%0APractice%20name%3A%20%0AClinician(s)%3A%20%0AAverage%20monthly%20consultations%3A%20%0A%0AThanks%2C" class="btn-primary offer-cta">
+          Claim Founder Access
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+        <p class="offer-fineprint">Reply usually within the same working day. We'll confirm spots are still open before you commit anything.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-tag">Common questions</span>
+        <h2 class="section-title">Founder access, <em>straight answers</em>.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What does "founder access" actually mean?</summary>
+          <p>It means you're one of the first 50 UK practices using SmileOS. You get a direct line to me (Haroon, the founder), input into what we build next, and your founder pricing locked in for the lifetime of your account.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Why no credit card up-front?</summary>
+          <p>Because asking for a card before you've used the product is how you end up with churn on day 61. I'd rather you try it for two months, decide it's worth paying for, and then we sort billing.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What happens after the 60 days?</summary>
+          <p>I'll get in touch before the trial ends. If it's working for your practice, you move onto founder pricing. If it isn't, you walk away — we'll help you export your data.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who built this and why should I trust it?</summary>
+          <p>I'm Haroon — a UK GDC-registered clinical director. I'm building SmileOS because the consultation workflow in my own practice was broken, and existing tools didn't fix it. You can email me at any time.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my patient data safe?</summary>
+          <p>Your practice data is tenant-scoped on every API request, hosted on UK/EU infrastructure (Supabase), and isolated from other practices. We're still maturing the formal compliance surface (DPA, DPIA, ICO registration) — happy to talk through where we're at on a call before you sign anything.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if it's not the right fit?</summary>
+          <p>That's fine. Cancel any time during the trial — no card, no commitment. If you'd cancel after that, give 30 days' notice and we'll help you export everything.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="section-inner">
+      <span class="section-tag">Founder cohort closing soon</span>
+      <h2 class="section-title">Ready to be one of <em>the first 50</em>?</h2>
+      <p class="section-sub">60 days free. No card. Founder pricing locked in. One direct email to the dentist building it.</p>
+      <a href="mailto:haroonismail87@gmail.com?subject=Founder%20Access%20%E2%80%94%20SmileOS&body=Hi%20Haroon%2C%0A%0AI%27d%20like%20to%20claim%20founder%20access%20to%20SmileOS.%0A%0APractice%20name%3A%20%0AClinician(s)%3A%20%0AAverage%20monthly%20consultations%3A%20%0A%0AThanks%2C" class="final-cta-btn">
+        Claim Founder Access
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+      <div class="final-cta-micro">
+        <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> 60 days free</span>
+        <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> No card</span>
+        <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Cancel anytime</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Smile<span>OS</span></div>
+        <p class="footer-text" style="margin-top: 10px;">
+          SmileOS Ltd · UK · The consultation platform for dentists.
+        </p>
+      </div>
+      <p class="footer-text">
+        Founder access is offered to a limited cohort of UK dental practices. Founder pricing applies to the original signing practice for the lifetime of the account. <a href="mailto:haroonismail87@gmail.com">Email Haroon</a> for the full terms before signing.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
