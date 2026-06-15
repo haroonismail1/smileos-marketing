@@ -415,6 +415,14 @@
     .offer-price-strike { font-size: 1.4rem; color: var(--muted); text-decoration: line-through; }
     .offer-price-suffix { color: rgba(255, 255, 255, 0.6); font-size: 1rem; }
     .offer-cta { width: 100%; justify-content: center; padding: 20px; font-size: 1.1rem; }
+    .offer-tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
+    .tier { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 26px 24px; text-align: center; }
+    .tier-name { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+    .tier-price { font-family: 'Fraunces','Times New Roman',serif; font-size: 2.6rem; font-weight: 700; color: var(--surface); line-height: 1; }
+    .tier-price span { font-family: inherit; font-size: 1rem; color: rgba(255,255,255,0.6); font-weight: 400; }
+    .tier-note { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 8px 0 18px; }
+    .tier-cta { width: 100%; justify-content: center; padding: 14px; font-size: 1rem; }
+    @media (max-width: 560px) { .offer-tiers { grid-template-columns: 1fr; } }
     .offer-fineprint {
       text-align: center; font-size: 0.88rem; color: rgba(255, 255, 255, 0.5);
       margin-top: 18px;
@@ -774,17 +782,21 @@
           <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>Cancel any time</strong> — keep your data, walk away clean</span></div>
         </div>
 
-        <div class="offer-price-row">
-          <span class="offer-price">£0</span>
-          <span class="offer-price-strike">£99/mo</span>
-          <span class="offer-price-suffix">for the first 60 days</span>
+        <div class="offer-tiers">
+          <div class="tier">
+            <div class="tier-name">Individual dentist</div>
+            <div class="tier-price">£99<span>/mo</span></div>
+            <div class="tier-note">after 60 days free · 1 clinician</div>
+            <a href="https://app.smileos.co.uk/signup?plan=solo" class="btn-primary tier-cta">Claim Founder Access</a>
+          </div>
+          <div class="tier">
+            <div class="tier-name">Clinic</div>
+            <div class="tier-price">£199<span>/mo</span></div>
+            <div class="tier-note">after 60 days free · up to 5 clinicians</div>
+            <a href="https://app.smileos.co.uk/signup?plan=practice" class="btn-primary tier-cta">Claim Founder Access</a>
+          </div>
         </div>
-
-        <a href="mailto:haroonismail87@gmail.com?subject=Founder%20Access%20%E2%80%94%20SmileOS&body=Hi%20Haroon%2C%0A%0AI%27d%20like%20to%20claim%20founder%20access%20to%20SmileOS.%0A%0APractice%20name%3A%20%0AClinician(s)%3A%20%0AAverage%20monthly%20consultations%3A%20%0A%0AThanks%2C" class="btn-primary offer-cta">
-          Claim Founder Access
-          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-        </a>
-        <p class="offer-fineprint">Reply usually within the same working day. We'll confirm spots are still open before you commit anything.</p>
+        <p class="offer-fineprint">£0 for the first 60 days · no card required · founder pricing locked in for life.<br>Prefer to talk first? Email <a href="mailto:haroonismail87@gmail.com?subject=Founder%20Access%20%E2%80%94%20SmileOS" style="color:var(--teal)">haroonismail87@gmail.com</a>.</p>
       </div>
     </div>
   </section>
