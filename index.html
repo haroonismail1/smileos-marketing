@@ -420,6 +420,37 @@
       margin-top: 18px;
     }
 
+    /* ── Founder access form ── */
+    .claim-form { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; text-align: left; }
+    .claim-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .claim-field { display: flex; flex-direction: column; gap: 6px; }
+    .claim-field label {
+      font-size: 0.82rem; font-weight: 600; color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 0.02em;
+    }
+    .claim-field input {
+      background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px; padding: 13px 14px;
+      font-family: inherit; font-size: 0.98rem; color: #fff;
+    }
+    .claim-field input::placeholder { color: rgba(255, 255, 255, 0.35); }
+    .claim-field input:focus {
+      outline: none; border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0, 184, 162, 0.25);
+    }
+    .claim-hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+    .claim-error {
+      display: none; background: rgba(220, 80, 80, 0.15); border: 1px solid rgba(220, 80, 80, 0.4);
+      color: #ffb3b3; border-radius: 10px; padding: 12px 14px; font-size: 0.92rem;
+    }
+    .claim-error a { color: #fff; text-decoration: underline; }
+    .claim-success { display: none; text-align: center; padding: 28px 8px 8px; }
+    .claim-success h3 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+    .claim-success p { color: rgba(255, 255, 255, 0.7); font-size: 0.98rem; }
+    .claim-form button.btn-primary { border: none; cursor: pointer; font-family: inherit; }
+    .claim-form button.btn-primary:disabled { opacity: 0.6; cursor: wait; }
+    @media (max-width: 640px) { .claim-form-grid { grid-template-columns: 1fr; } }
+
     /* ── FAQ ── */
     .faq { background: var(--cream); }
     .faq-list {
@@ -780,11 +811,46 @@
           <span class="offer-price-suffix">for the first 60 days</span>
         </div>
 
-        <a href="mailto:haroonismail87@gmail.com?subject=Founder%20Access%20%E2%80%94%20SmileOS&body=Hi%20Haroon%2C%0A%0AI%27d%20like%20to%20claim%20founder%20access%20to%20SmileOS.%0A%0APractice%20name%3A%20%0AClinician(s)%3A%20%0AAverage%20monthly%20consultations%3A%20%0A%0AThanks%2C" class="btn-primary offer-cta">
-          Claim Founder Access
-          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-        </a>
-        <p class="offer-fineprint">Reply usually within the same working day. We'll confirm spots are still open before you commit anything.</p>
+        <form class="claim-form" id="claim-form" novalidate>
+          <div class="claim-form-grid">
+            <div class="claim-field">
+              <label for="cf-name">Your name *</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Dr Jane Smith" />
+            </div>
+            <div class="claim-field">
+              <label for="cf-email">Email *</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@yourpractice.co.uk" />
+            </div>
+          </div>
+          <div class="claim-field">
+            <label for="cf-practice">Practice name *</label>
+            <input id="cf-practice" name="practice_name" type="text" autocomplete="organization" required placeholder="Your practice" />
+          </div>
+          <div class="claim-form-grid">
+            <div class="claim-field">
+              <label for="cf-clinicians">Clinician(s)</label>
+              <input id="cf-clinicians" name="clinicians" type="text" placeholder="e.g. 2 dentists, 1 hygienist" />
+            </div>
+            <div class="claim-field">
+              <label for="cf-consults">Average monthly consultations</label>
+              <input id="cf-consults" name="monthly_consultations" type="text" inputmode="numeric" placeholder="e.g. 30" />
+            </div>
+          </div>
+          <div class="claim-hp" aria-hidden="true">
+            <label for="cf-website">Website</label>
+            <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="claim-error" id="claim-error" role="alert"></div>
+          <button type="submit" class="btn-primary offer-cta">
+            Claim Founder Access
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </button>
+        </form>
+        <div class="claim-success" id="claim-success">
+          <h3>Request received ✓</h3>
+          <p>Thanks — you'll hear back from Haroon directly, usually within the same working day. We'll confirm spots are still open before you commit anything.</p>
+        </div>
+        <p class="offer-fineprint">Reply usually within the same working day. We'll confirm spots are still open before you commit anything. Prefer email? <a href="mailto:haroonismail87@gmail.com" style="color: rgba(255,255,255,0.75); text-decoration: underline;">haroonismail87@gmail.com</a></p>
       </div>
     </div>
   </section>
@@ -831,7 +897,7 @@
       <span class="section-tag">Founder cohort closing soon</span>
       <h2 class="section-title">Ready to be one of <em>the first 50</em>?</h2>
       <p class="section-sub">60 days free. No card. Founder pricing locked in. One direct email to the dentist building it.</p>
-      <a href="mailto:haroonismail87@gmail.com?subject=Founder%20Access%20%E2%80%94%20SmileOS&body=Hi%20Haroon%2C%0A%0AI%27d%20like%20to%20claim%20founder%20access%20to%20SmileOS.%0A%0APractice%20name%3A%20%0AClinician(s)%3A%20%0AAverage%20monthly%20consultations%3A%20%0A%0AThanks%2C" class="final-cta-btn">
+      <a href="#claim" class="final-cta-btn">
         Claim Founder Access
         <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
       </a>
@@ -857,6 +923,61 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var ENDPOINT = 'https://xqhwnkeljvgrwexpwosm.supabase.co/functions/v1/founder-access';
+      var form = document.getElementById('claim-form');
+      if (!form) return;
+      var errorBox = document.getElementById('claim-error');
+      var successBox = document.getElementById('claim-success');
+      var button = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorBox.style.display = 'none';
+
+        var payload = {
+          name: form.name.value,
+          email: form.email.value,
+          practice_name: form.practice_name.value,
+          clinicians: form.clinicians.value,
+          monthly_consultations: form.monthly_consultations.value,
+          website: form.website.value,
+          plan: new URLSearchParams(location.search).get('plan') || '',
+          source_page: location.pathname + location.search
+        };
+
+        if (!payload.name.trim() || !payload.practice_name.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email.trim())) {
+          errorBox.textContent = 'Please fill in your name, a valid email, and your practice name.';
+          errorBox.style.display = 'block';
+          return;
+        }
+
+        button.disabled = true;
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            if (res.ok && data.ok) {
+              form.style.display = 'none';
+              successBox.style.display = 'block';
+            } else {
+              throw new Error(data.error || 'Request failed');
+            }
+          });
+        }).catch(function (err) {
+          button.disabled = false;
+          errorBox.innerHTML = (err.message === 'Failed to fetch'
+            ? 'Something went wrong sending your request.'
+            : err.message) + ' You can also email <a href="mailto:haroonismail87@gmail.com">haroonismail87@gmail.com</a> directly.';
+          errorBox.style.display = 'block';
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
