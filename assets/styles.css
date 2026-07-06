@@ -492,3 +492,6 @@ footer.site-footer {
       background: var(--teal-soft); border: 1px solid rgba(0, 184, 162, 0.3);
       border-radius: 12px; padding: 18px 20px; margin: 0 0 14px;
     }
+
+.nav-login { color: rgba(255,255,255,0.72); font-size: 0.92rem; font-weight: 600; margin-right: 20px; transition: color 0.2s; }
+.nav-login:hover { color: var(--surface); }
