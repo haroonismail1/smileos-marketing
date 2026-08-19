@@ -7,563 +7,8 @@
   <meta name="description" content="Founder Access to SmileOS — the AI-assisted consultation platform built by a UK GDC-registered clinical director. 60-day free trial, no card required, founder pricing locked in for life." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --navy: #0a1628;
-      --navy-soft: #1a2a42;
-      --body: #4a5970;
-      --muted: #8a9ab5;
-      --teal: #00b8a2;
-      --teal-deep: #00a290;
-      --teal-soft: #e6f7f5;
-      --gold: #c9a84c;
-      --gold-soft: #f5edd6;
-      --cream: #faf7f2;
-      --surface: #ffffff;
-      --border: rgba(10, 22, 40, 0.08);
-      --border-strong: rgba(10, 22, 40, 0.14);
-      --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.04);
-      --shadow-md: 0 4px 16px rgba(10, 22, 40, 0.06);
-      --shadow-lg: 0 16px 48px rgba(10, 22, 40, 0.1);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 17px; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--cream);
-      color: var(--navy);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-
-    /* ── URGENCY STRIP ── */
-    .urgency-strip {
-      background: var(--navy);
-      color: rgba(255, 255, 255, 0.9);
-      padding: 11px 24px;
-      text-align: center;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.2px;
-    }
-    .urgency-strip strong { color: var(--teal); font-weight: 700; }
-    .urgency-strip .dot { display: inline-block; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; margin: 0 12px; vertical-align: middle; animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
-
-    /* ── NAV (dark, matches hero) ── */
-    nav {
-      position: sticky; top: 0; z-index: 50;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 48px;
-      background: rgba(10, 22, 40, 0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .nav-logo { font-family: 'Fraunces', 'Times New Roman', serif; font-size: 1.55rem; font-weight: 700; color: var(--surface); letter-spacing: -0.5px; }
-    .nav-logo span { color: var(--teal); }
-    .nav-login { color: rgba(255,255,255,0.72); font-size: 0.92rem; font-weight: 600; margin-right: 20px; transition: color 0.2s; }
-    .nav-login:hover { color: var(--surface); }
-    .nav-cta {
-      background: var(--teal); color: var(--navy);
-      padding: 12px 22px; border-radius: 10px;
-      font-size: 0.92rem; font-weight: 700;
-      transition: transform 0.15s ease, background 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 0 1px rgba(0, 184, 162, 0.3);
-    }
-    .nav-cta:hover { background: var(--teal-deep); color: var(--surface); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0, 184, 162, 0.4); }
-
-    /* ── HERO (dark, high-contrast) ── */
-    .hero-wrap {
-      background: var(--navy);
-      position: relative; overflow: hidden;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .hero-wrap::before {
-      content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 75% 25%, rgba(0, 184, 162, 0.18) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 70% at 15% 90%, rgba(201, 168, 76, 0.10) 0%, transparent 55%);
-      pointer-events: none;
-    }
-    .hero-wrap::after {
-      content: ''; position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 75%);
-      pointer-events: none;
-    }
-    .hero {
-      padding: 96px 48px 104px;
-      max-width: 1240px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.2fr 1fr;
-      gap: 88px; align-items: center;
-      position: relative; z-index: 1;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(0, 184, 162, 0.12); color: var(--teal);
-      border: 1px solid rgba(0, 184, 162, 0.35);
-      border-radius: 999px; padding: 9px 18px;
-      font-size: 0.82rem; font-weight: 700;
-      letter-spacing: 0.8px; text-transform: uppercase;
-      margin-bottom: 32px;
-      box-shadow: 0 0 0 4px rgba(0, 184, 162, 0.06);
-    }
-    .hero-badge::before {
-      content: ''; width: 7px; height: 7px;
-      background: var(--teal); border-radius: 50%;
-      box-shadow: 0 0 12px var(--teal);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    .hero-pain {
-      display: inline-block;
-      font-size: 1rem; font-weight: 600;
-      color: var(--gold); letter-spacing: 0.3px;
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      font-family: 'Fraunces', 'Times New Roman', serif;
-      font-size: clamp(2.8rem, 6vw, 5.4rem);
-      font-weight: 700; line-height: 1.02;
-      letter-spacing: -1.5px;
-      color: var(--surface);
-      margin-bottom: 28px;
-    }
-    .hero h1 .strike {
-      position: relative; color: rgba(255, 255, 255, 0.45);
-      font-style: italic;
-    }
-    .hero h1 .strike::after {
-      content: ''; position: absolute;
-      left: -2%; right: -2%; top: 52%;
-      height: 4px; background: var(--gold);
-      transform: rotate(-2deg); border-radius: 2px;
-    }
-    .hero h1 em {
-      font-style: italic; color: var(--teal); font-weight: 700;
-      text-shadow: 0 0 32px rgba(0, 184, 162, 0.35);
-    }
-    .hero-sub {
-      font-size: 1.32rem; color: rgba(255, 255, 255, 0.78);
-      line-height: 1.55; max-width: 580px;
-      margin-bottom: 44px; font-weight: 400;
-    }
-    .hero-sub strong { color: var(--surface); font-weight: 600; }
-    .hero-ctas { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 36px; }
-    .btn-primary {
-      background: var(--teal); color: var(--navy);
-      padding: 20px 36px; border-radius: 12px;
-      font-size: 1.08rem; font-weight: 700;
-      box-shadow: 0 8px 24px rgba(0, 184, 162, 0.35), 0 0 0 1px rgba(0, 184, 162, 0.4);
-      transition: transform 0.15s ease, box-shadow 0.2s, background 0.2s;
-      display: inline-flex; align-items: center; gap: 10px;
-    }
-    .btn-primary:hover { background: var(--teal-deep); color: var(--surface); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0, 184, 162, 0.5), 0 0 0 1px rgba(0, 184, 162, 0.6); }
-    .btn-primary svg { width: 18px; height: 18px; }
-    .btn-secondary {
-      color: var(--surface); font-size: 1rem; font-weight: 600;
-      padding: 16px 0; display: inline-flex; align-items: center; gap: 10px;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.35); transition: border-color 0.2s, opacity 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--teal); }
-    .hero-micro {
-      display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
-      font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);
-    }
-    .hero-micro-item { display: flex; align-items: center; gap: 8px; }
-    .hero-micro-item svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; }
-
-    /* hero visual — founder card (dark) */
-    .hero-visual {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px; padding: 40px;
-      position: relative;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
-    }
-    .hero-visual::before {
-      content: ''; position: absolute; top: 0; left: 32px; right: 32px;
-      height: 3px; background: linear-gradient(90deg, var(--teal), var(--gold));
-      border-radius: 0 0 4px 4px;
-    }
-    .hero-visual::after {
-      content: '"'; position: absolute; top: 18px; right: 32px;
-      font-family: 'Fraunces', 'Times New Roman', serif;
-      font-size: 7rem; line-height: 1; color: var(--teal);
-      opacity: 0.12;
-    }
-    .founder-avatar {
-      width: 76px; height: 76px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--teal-deep));
-      color: var(--navy); display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', 'Times New Roman', serif; font-weight: 700; font-size: 1.7rem;
-      margin-bottom: 22px;
-      box-shadow: 0 0 0 4px rgba(0, 184, 162, 0.15), 0 8px 20px rgba(0, 184, 162, 0.3);
-    }
-    .founder-quote {
-      font-family: 'Fraunces', 'Times New Roman', serif; font-style: italic;
-      font-size: 1.4rem; line-height: 1.38; color: var(--surface);
-      margin-bottom: 26px; position: relative;
-    }
-    .founder-name { font-weight: 700; color: var(--surface); font-size: 1.05rem; }
-    .founder-role { font-size: 0.92rem; color: rgba(255, 255, 255, 0.55); margin-top: 3px; }
-    .founder-tags {
-      display: flex; gap: 8px; flex-wrap: wrap;
-      margin-top: 26px; padding-top: 26px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .founder-tag {
-      font-size: 0.78rem; font-weight: 600; color: var(--surface);
-      background: rgba(255, 255, 255, 0.06); padding: 7px 14px; border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      background: var(--surface);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 36px 48px;
-    }
-    .trust-bar-inner {
-      max-width: 1180px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
-    }
-    .trust-item {
-      display: flex; gap: 14px; align-items: center;
-    }
-    .trust-icon {
-      width: 42px; height: 42px; flex-shrink: 0;
-      background: var(--teal-soft); border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--teal-deep);
-    }
-    .trust-icon svg { width: 22px; height: 22px; }
-    .trust-text h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-    .trust-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
-
-    /* ── SECTION BASE ── */
-    section { padding: 96px 48px; }
-    .section-inner { max-width: 1180px; margin: 0 auto; }
-    .section-tag {
-      display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--teal-deep);
-      background: var(--teal-soft); border-radius: 999px;
-      padding: 7px 16px; margin-bottom: 20px;
-    }
-    .section-title {
-      font-family: 'Fraunces', 'Times New Roman', serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 700; line-height: 1.15; letter-spacing: -0.6px;
-      color: var(--navy); margin-bottom: 20px;
-    }
-    .section-title em { font-style: italic; color: var(--teal-deep); }
-    .section-sub {
-      font-size: 1.2rem; color: var(--body); line-height: 1.6;
-      max-width: 680px;
-    }
-    .section-head { text-align: center; margin: 0 auto 64px; max-width: 740px; }
-
-    /* ── FEATURE PILLS ── */
-    .features { background: var(--cream); }
-    .feature-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-    .feature-pill {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; padding: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s, border-color 0.2s;
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .feature-pill:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(0, 184, 162, 0.3); }
-    .feature-pill-icon {
-      width: 52px; height: 52px;
-      background: linear-gradient(135deg, var(--teal-soft), var(--gold-soft));
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--teal-deep);
-    }
-    .feature-pill-icon svg { width: 26px; height: 26px; }
-    .feature-pill h3 {
-      font-size: 1.15rem; font-weight: 700; color: var(--navy);
-      letter-spacing: -0.2px;
-    }
-    .feature-pill p {
-      font-size: 0.98rem; color: var(--body); line-height: 1.55;
-    }
-
-    /* ── WHY FOUNDER ── */
-    .why {
-      background: var(--surface);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    }
-    .why-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    }
-    .why-list { display: flex; flex-direction: column; gap: 28px; margin-top: 32px; }
-    .why-item { display: flex; gap: 18px; align-items: flex-start; }
-    .why-item-icon {
-      width: 36px; height: 36px; flex-shrink: 0;
-      background: var(--navy); color: var(--surface);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', 'Times New Roman', serif; font-weight: 700; font-size: 0.95rem;
-    }
-    .why-item-content h4 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .why-item-content p { font-size: 1rem; color: var(--body); line-height: 1.55; }
-
-    .why-card {
-      background: var(--cream); border: 1px solid var(--border);
-      border-radius: 24px; padding: 40px;
-      position: relative; overflow: hidden;
-    }
-    .why-card::before {
-      content: ''; position: absolute; top: 0; right: 0;
-      width: 240px; height: 240px;
-      background: radial-gradient(circle, rgba(0, 184, 162, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .why-card h3 {
-      font-family: 'Fraunces', 'Times New Roman', serif;
-      font-size: 1.6rem; font-weight: 700; line-height: 1.25;
-      color: var(--navy); margin-bottom: 18px;
-      position: relative;
-    }
-    .why-card p {
-      font-size: 1.02rem; color: var(--body); line-height: 1.65;
-      margin-bottom: 14px; position: relative;
-    }
-    .why-card-signature {
-      margin-top: 24px; padding-top: 20px;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; gap: 14px;
-      position: relative;
-    }
-
-    /* ── HOW IT WORKS ── */
-    .how { background: var(--cream); }
-    .how-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-      counter-reset: stepcount;
-    }
-    .how-step {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; padding: 32px;
-      position: relative;
-      counter-increment: stepcount;
-    }
-    .how-step::before {
-      content: counter(stepcount, decimal-leading-zero);
-      font-family: 'Fraunces', 'Times New Roman', serif;
-      font-size: 3.4rem; font-weight: 700;
-      color: var(--teal-soft); line-height: 1;
-      position: absolute; top: 24px; right: 28px;
-    }
-    .how-step h3 {
-      font-size: 1.25rem; font-weight: 700; color: var(--navy);
-      margin: 8px 0 12px; letter-spacing: -0.2px;
-      position: relative;
-    }
-    .how-step p { font-size: 1rem; color: var(--body); line-height: 1.6; }
-
-    /* ── PRICING / OFFER ── */
-    .offer {
-      background: var(--navy); color: var(--surface);
-      position: relative; overflow: hidden;
-    }
-    .offer::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 70% 30%, rgba(0, 184, 162, 0.15) 0%, transparent 60%),
-                  radial-gradient(ellipse 50% 60% at 20% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .offer .section-inner { position: relative; }
-    .offer .section-title { color: var(--surface); }
-    .offer .section-title em { color: var(--teal); }
-    .offer .section-sub { color: rgba(255, 255, 255, 0.7); }
-    .offer .section-tag { background: rgba(0, 184, 162, 0.15); color: var(--teal); }
-
-    .offer-card {
-      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 24px; padding: 48px;
-      max-width: 720px; margin: 0 auto;
-      backdrop-filter: blur(10px);
-    }
-    .offer-rows { display: flex; flex-direction: column; gap: 16px; margin: 28px 0 32px; }
-    .offer-row {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 1.08rem; color: rgba(255, 255, 255, 0.9);
-    }
-    .offer-row svg { width: 22px; height: 22px; color: var(--teal); flex-shrink: 0; }
-    .offer-row strong { color: var(--surface); }
-    .offer-price-row {
-      display: flex; align-items: baseline; gap: 16px;
-      padding: 20px 0; margin-bottom: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .offer-price {
-      font-family: 'Fraunces', 'Times New Roman', serif; font-size: 3rem; font-weight: 700;
-      color: var(--surface); line-height: 1;
-    }
-    .offer-price-strike { font-size: 1.4rem; color: var(--muted); text-decoration: line-through; }
-    .offer-price-suffix { color: rgba(255, 255, 255, 0.6); font-size: 1rem; }
-    .offer-cta { width: 100%; justify-content: center; padding: 20px; font-size: 1.1rem; }
-    .offer-fineprint {
-      text-align: center; font-size: 0.88rem; color: rgba(255, 255, 255, 0.5);
-      margin-top: 18px;
-    }
-
-
-    /* ── Full site footer ── */
-    footer.site-footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 64px 48px 32px; }
-    .footer-grid { max-width: 1180px; margin: 0 auto 48px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
-    .footer-col h5 { color: var(--surface); font-size: 0.82rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 18px; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a { font-size: 0.92rem; color: rgba(255,255,255,0.65); transition: color 0.2s; }
-    .footer-col a:hover { color: var(--surface); }
-    .footer-desc { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 320px; }
-    .footer-bottom { max-width: 1180px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
-    @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; } }
-
-    /* ── Founder access form ── */
-    .claim-form { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; text-align: left; }
-    .claim-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .claim-field { display: flex; flex-direction: column; gap: 6px; }
-    .claim-field label {
-      font-size: 0.82rem; font-weight: 600; color: rgba(255, 255, 255, 0.75);
-      letter-spacing: 0.02em;
-    }
-    .claim-field input {
-      background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 10px; padding: 13px 14px;
-      font-family: inherit; font-size: 0.98rem; color: #fff;
-    }
-    .claim-field input::placeholder { color: rgba(255, 255, 255, 0.35); }
-    .claim-field input:focus {
-      outline: none; border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(0, 184, 162, 0.25);
-    }
-    .claim-hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
-    .claim-error {
-      display: none; background: rgba(220, 80, 80, 0.15); border: 1px solid rgba(220, 80, 80, 0.4);
-      color: #ffb3b3; border-radius: 10px; padding: 12px 14px; font-size: 0.92rem;
-    }
-    .claim-error a { color: #fff; text-decoration: underline; }
-    .claim-success { display: none; text-align: center; padding: 28px 8px 8px; }
-    .claim-success h3 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
-    .claim-success p { color: rgba(255, 255, 255, 0.7); font-size: 0.98rem; }
-    .claim-form button.btn-primary { border: none; cursor: pointer; font-family: inherit; }
-    .claim-form button.btn-primary:disabled { opacity: 0.6; cursor: wait; }
-    @media (max-width: 640px) { .claim-form-grid { grid-template-columns: 1fr; } }
-
-    /* ── FAQ ── */
-    .faq { background: var(--cream); }
-    .faq-list {
-      max-width: 820px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .faq-item {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px 28px;
-      transition: border-color 0.2s;
-    }
-    .faq-item[open] { border-color: rgba(0, 184, 162, 0.3); }
-    .faq-item summary {
-      cursor: pointer; list-style: none;
-      font-size: 1.1rem; font-weight: 700; color: var(--navy);
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after {
-      content: '+'; font-size: 1.6rem; font-weight: 400; color: var(--teal-deep);
-      flex-shrink: 0; transition: transform 0.2s;
-    }
-    .faq-item[open] summary::after { content: '−'; }
-    .faq-item p {
-      font-size: 1rem; color: var(--body); line-height: 1.65;
-      margin-top: 14px; padding-top: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    /* ── FINAL CTA ── */
-    .final-cta {
-      background: linear-gradient(135deg, var(--teal-deep), var(--teal));
-      color: var(--surface); text-align: center;
-    }
-    .final-cta .section-tag { background: rgba(255, 255, 255, 0.18); color: var(--surface); }
-    .final-cta .section-title { color: var(--surface); }
-    .final-cta .section-title em { color: var(--navy); }
-    .final-cta .section-sub { color: rgba(255, 255, 255, 0.92); margin: 0 auto 40px; }
-    .final-cta-btn {
-      background: var(--navy); color: var(--surface);
-      padding: 22px 44px; border-radius: 14px;
-      font-size: 1.15rem; font-weight: 700;
-      box-shadow: 0 10px 32px rgba(10, 22, 40, 0.3);
-      display: inline-flex; align-items: center; gap: 12px;
-      transition: transform 0.15s, box-shadow 0.2s;
-    }
-    .final-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(10, 22, 40, 0.4); }
-    .final-cta-btn svg { width: 22px; height: 22px; }
-    .final-cta-micro {
-      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
-      margin-top: 28px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.9);
-    }
-    .final-cta-micro span { display: inline-flex; align-items: center; gap: 8px; }
-    .final-cta-micro svg { width: 18px; height: 18px; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy); color: rgba(255, 255, 255, 0.6);
-      padding: 48px;
-    }
-    .footer-inner {
-      max-width: 1180px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center; gap: 24px;
-      flex-wrap: wrap;
-    }
-    .footer-logo { font-family: 'Fraunces', 'Times New Roman', serif; font-size: 1.3rem; font-weight: 700; color: var(--surface); }
-    .footer-logo span { color: var(--teal); }
-    .footer-text { font-size: 0.88rem; line-height: 1.55; max-width: 540px; }
-    .footer-text a { color: rgba(255, 255, 255, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      html { font-size: 16px; }
-      nav { padding: 16px 24px; }
-      .hero { grid-template-columns: 1fr; gap: 48px; padding: 56px 24px 60px; }
-      .hero-visual { order: 2; }
-      .trust-bar { padding: 28px 24px; }
-      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-      section { padding: 72px 24px; }
-      .feature-grid { grid-template-columns: 1fr; gap: 16px; }
-      .why-grid { grid-template-columns: 1fr; gap: 48px; }
-      .how-grid { grid-template-columns: 1fr; gap: 20px; }
-      .offer-card { padding: 32px 24px; }
-      .offer-price { font-size: 2.4rem; }
-      footer { padding: 32px 24px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 560px) {
-      .urgency-strip { font-size: 0.78rem; padding: 9px 16px; }
-      .urgency-strip .dot { margin: 0 8px; }
-      .hero h1 { font-size: 2.4rem; }
-      .hero-sub { font-size: 1.08rem; }
-      .btn-primary { padding: 15px 24px; font-size: 0.98rem; }
-      .section-title { font-size: 1.9rem; }
-      .section-sub { font-size: 1.05rem; }
-      .feature-pill { padding: 22px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://www.smileos.co.uk/" />
@@ -579,66 +24,58 @@
 </head>
 <body>
 
-  <!-- URGENCY STRIP -->
   <div class="urgency-strip">
     <span class="dot"></span>
-    <strong>Founder Cohort:</strong> we're closing this round at our first 50 UK practices. Founder pricing locked in for life.
+    <strong>Founder cohort</strong>
+    <span>closing at our first 50 UK practices - founder pricing locked in for life.</span>
   </div>
 
-  <!-- NAV -->
-  <nav>
-    <a href="/" class="nav-logo">Smile<span>OS</span></a>
-    <ul class="nav-links" style="display:flex; align-items:center; gap:28px; list-style:none;">
-      <li class="nav-dropdown" style="position:relative;"><a href="/features/consultations.html" style="font-size:0.95rem; color:rgba(255,255,255,0.78); font-weight:500; padding:8px 0;">Features ▾</a>
-        <div class="nav-dropdown-menu" style="position:absolute; top:100%; left:-16px; background:#1a2a42; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px; min-width:260px; opacity:0; visibility:hidden; transform:translateY(-4px); transition:opacity 0.15s, transform 0.15s, visibility 0.15s; box-shadow:0 16px 48px rgba(0,0,0,0.4); margin-top:8px;">
-          <a href="/features/consultations.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">AI-assisted consultations</a>
-          <a href="/features/ai-clinical-notes.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">AI clinical notes</a>
-          <a href="/features/consent.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">Consent &amp; estimates</a>
-          <a href="/features/dashboard.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">Practice dashboard</a>
-        </div>
-      </li>
-      <li class="nav-dropdown" style="position:relative;"><a href="/for/dentists.html" style="font-size:0.95rem; color:rgba(255,255,255,0.78); font-weight:500; padding:8px 0;">For your team ▾</a>
-        <div class="nav-dropdown-menu" style="position:absolute; top:100%; left:-16px; background:#1a2a42; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px; min-width:240px; opacity:0; visibility:hidden; transform:translateY(-4px); transition:opacity 0.15s, transform 0.15s, visibility 0.15s; box-shadow:0 16px 48px rgba(0,0,0,0.4); margin-top:8px;">
-          <a href="/for/dentists.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">Dentists</a>
-          <a href="/for/hygienists.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">Hygienists</a>
-          <a href="/for/dental-nurses.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">Dental nurses</a>
-          <a href="/for/practice-managers.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">Practice managers</a>
-          <a href="/for/dental-groups.html" style="display:block; padding:9px 14px; font-size:0.9rem; color:rgba(255,255,255,0.78); border-radius:8px;">Dental groups</a>
-        </div>
-      </li>
-      <li><a href="/pricing.html" style="font-size:0.95rem; color:rgba(255,255,255,0.78); font-weight:500;">Pricing</a></li>
-      <li><a href="/compare.html" style="font-size:0.95rem; color:rgba(255,255,255,0.78); font-weight:500;">Compare</a></li>
-      <li><a href="/trust.html" style="font-size:0.95rem; color:rgba(255,255,255,0.78); font-weight:500;">Trust</a></li>
+  <nav class="site-nav">
+    <a href="/" class="nav-logo"><span class="mark">S</span>SmileOS</a>
+    <ul class="nav-links">
+      <li><button type="button" data-panel="features" aria-expanded="false">Features ▾</button></li>
+      <li><button type="button" data-panel="team" aria-expanded="false">For your team ▾</button></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/compare.html">Compare</a></li>
+      <li><a href="/trust.html">Trust</a></li>
     </ul>
+    <span class="nav-spacer"></span>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
     <a href="https://app.smileos.co.uk" class="nav-login">Log in</a>
-    <a href="#claim" class="nav-cta">Claim Founder Access</a>
+    <a href="#claim" class="nav-cta">Claim founder access</a>
   </nav>
-  <style>
-    .nav-dropdown:hover .nav-dropdown-menu { opacity:1 !important; visibility:visible !important; transform:translateY(0) !important; }
-    .nav-dropdown-menu a:hover { background:rgba(255,255,255,0.06); color:#fff !important; }
-    .nav-links > li > a:hover { color:#fff !important; }
-    @media (max-width: 960px) { .nav-links { display:none !important; } }
-  </style>
+  <div class="nav-panel" id="nav-panel-features" hidden>
+    <div class="nav-panel-inner">
+      <a href="/features/consultations.html">AI-assisted consultations</a>
+      <a href="/features/ai-clinical-notes.html">AI clinical notes</a>
+      <a href="/features/consent.html">Consent &amp; estimates</a>
+      <a href="/features/dashboard.html">Practice dashboard</a>
+    </div>
+  </div>
+  <div class="nav-panel" id="nav-panel-team" hidden>
+    <div class="nav-panel-inner">
+      <a href="/for/dentists.html">Dentists</a>
+      <a href="/for/hygienists.html">Hygienists</a>
+      <a href="/for/dental-nurses.html">Dental nurses</a>
+      <a href="/for/practice-managers.html">Practice managers</a>
+      <a href="/for/dental-groups.html">Dental groups</a>
+    </div>
+  </div>
 
   <!-- HERO -->
-  <div class="hero-wrap">
-    <header class="hero">
+  <header class="page-hero home">
+    <div class="page-hero-inner">
       <div>
-        <div class="hero-badge">Founder Access · 50 spots only</div>
+        <span class="hero-eyebrow dotted">Founder access · 50 spots only</span>
         <span class="hero-pain">Lost cases. Half-written notes. Consults that go cold.</span>
         <h1>The consultation should be the <em>strongest</em> part of your practice. <span class="strike">Not the weakest.</span></h1>
-        <p class="hero-sub">
-          Forms that don't talk to each other. Notes you write twice. Estimates patients ghost. Consent paperwork that buries the case. <strong>SmileOS replaces every disconnected piece with one clean flow</strong> — built by a UK GDC-registered clinical director who got tired of the same chaos in his own chair.
-        </p>
+        <p class="lede">Forms that don't talk to each other. Notes you write twice. Estimates patients ghost. Consent paperwork that buries the case. <strong>SmileOS replaces every disconnected piece with one clean flow</strong> - built by a UK GDC-registered clinical director who got tired of the same chaos in his own chair.</p>
         <div class="hero-ctas">
           <a href="#claim" class="btn-primary">
-            Claim Founder Access
+            Claim founder access
             <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
           </a>
-          <a href="#how" class="btn-secondary">
-            See the fix
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M19.5 10a.75.75 0 01-.75.75H4.66l4.97 4.97a.75.75 0 11-1.06 1.06l-6.25-6.25a.75.75 0 010-1.06l6.25-6.25a.75.75 0 111.06 1.06L4.66 9.25H18.75a.75.75 0 01.75.75z" clip-rule="evenodd" transform="scale(-1 1) translate(-20 0)"/></svg>
-          </a>
+          <a href="#how" class="btn-secondary">See the fix</a>
         </div>
         <div class="hero-micro">
           <span class="hero-micro-item">
@@ -656,118 +93,106 @@
         </div>
       </div>
 
-      <aside class="hero-visual" aria-label="Founder card">
-        <div class="founder-avatar">HI</div>
-        <p class="founder-quote">Most 'consultation platforms' are spreadsheets in a suit. I built SmileOS because dentists deserve better — and I'm one of them.</p>
-        <div class="founder-name">Haroon Ismail</div>
-        <div class="founder-role">Founder · GDC-registered Clinical Director</div>
-        <div class="founder-tags">
-          <span class="founder-tag">UK-built</span>
-          <span class="founder-tag">Dentist-led</span>
-          <span class="founder-tag">Direct line to the founder</span>
+      <aside class="persona-card lg" aria-label="Founder card">
+        <span class="persona-avatar">HI</span>
+        <p class="persona-quote">Most 'consultation platforms' are spreadsheets in a suit. I built SmileOS because dentists deserve better - and I'm one of them.</p>
+        <div class="persona-name">Haroon Ismail</div>
+        <div class="persona-byline">Founder · GDC-registered Clinical Director</div>
+        <div class="persona-chips">
+          <span>UK-built</span>
+          <span>Dentist-led</span>
+          <span>Direct line to the founder</span>
         </div>
       </aside>
-    </header>
-  </div>
+    </div>
+  </header>
 
   <!-- TRUST BAR -->
-  <section class="trust-bar" style="padding-top: 36px; padding-bottom: 36px;">
+  <section class="trust-bar">
     <div class="trust-bar-inner">
       <div class="trust-item">
-        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 1.5a.75.75 0 01.75.75V4.5a.75.75 0 01-1.5 0V2.25A.75.75 0 0112 1.5zM5.636 4.136a.75.75 0 011.06 0l1.592 1.591a.75.75 0 01-1.061 1.06l-1.591-1.59a.75.75 0 010-1.061zm12.728 0a.75.75 0 010 1.06l-1.591 1.592a.75.75 0 01-1.06-1.061l1.59-1.591a.75.75 0 011.061 0zm-6.816 4.496a.75.75 0 01.82.311l5.228 7.917a.75.75 0 01-.777 1.148l-2.097-.43 1.045 3.9a.75.75 0 01-1.45.388l-1.044-3.899-1.601 1.42a.75.75 0 01-1.247-.606l.569-9.47a.75.75 0 01.554-.679z" clip-rule="evenodd"/></svg></div>
         <div class="trust-text"><h4>Built by a dentist</h4><p>GDC-registered clinical director</p></div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.75.75 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08z" clip-rule="evenodd"/></svg></div>
         <div class="trust-text"><h4>UK-hosted data</h4><p>Tenant-scoped on every request</p></div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.948 49.948 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.88 50.88 0 007.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 014.653-2.52.75.75 0 00-.65-1.352 56.123 56.123 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z"/><path d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 01-.46.71 47.87 47.87 0 00-8.105 4.342.75.75 0 01-.832 0 47.87 47.87 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 00.551-1.607 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.667 2.25 2.25 0 002.12 0z"/></svg></div>
         <div class="trust-text"><h4>Real founder support</h4><p>Reply from Haroon, not a ticket queue</p></div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 7.78a.75.75 0 00-1.06-1.06l-5.97 5.97-2.47-2.47a.75.75 0 00-1.06 1.06l3 3a.75.75 0 001.06 0l6.5-6.5z" clip-rule="evenodd"/></svg></div>
         <div class="trust-text"><h4>60-day trial</h4><p>No card. Cancel any time.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURE PILLS -->
-  <section class="features" id="features">
+  <!-- FEATURES -->
+  <section id="features">
     <div class="section-inner">
       <div class="section-head">
         <span class="section-tag">What you get</span>
-        <h2 class="section-title">Everything between <em>"hello"</em> and treatment — in one flow.</h2>
+        <h2 class="section-title">Everything between "hello" and treatment - <em>in one flow</em>.</h2>
         <p class="section-sub">Built for cosmetic and orthodontic consultations. Skip the disconnected forms, half-finished notes, and consent paperwork chaos.</p>
       </div>
-
-      <div class="feature-grid">
-
-        <div class="feature-pill">
-          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.25 4.5a3.75 3.75 0 117.5 0v8.25a3.75 3.75 0 11-7.5 0V4.5z"/><path d="M6 10.5a.75.75 0 01.75.75v1.5a5.25 5.25 0 1010.5 0v-1.5a.75.75 0 011.5 0v1.5a6.751 6.751 0 01-6 6.71v2.29h3a.75.75 0 010 1.5h-7.5a.75.75 0 010-1.5h3v-2.29a6.751 6.751 0 01-6-6.71v-1.5A.75.75 0 016 10.5z"/></svg></div>
+      <div class="pill-grid">
+        <div class="pill">
+          <span class="pill-num">01</span>
           <h3>AI-assisted clinical notes</h3>
-          <p>Dictate the consultation — get a structured note back. Edit, sign, and move on.</p>
+          <p>Dictate the consultation - get a structured note back. Edit, sign, and move on.</p>
         </div>
-
-        <div class="feature-pill">
-          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.625 1.5H9a3.75 3.75 0 013.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 013.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 01-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875zm5.845 17.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V12a.75.75 0 00-1.5 0v4.19l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/><path d="M14.25 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0016.5 7.5h-1.875a.375.375 0 01-.375-.375V5.25z"/></svg></div>
+        <div class="pill">
+          <span class="pill-num">02</span>
           <h3>Consent + estimate, signed in-chair</h3>
           <p>Generate a personalised estimate, get treatment consent, all without leaving the consultation.</p>
         </div>
-
-        <div class="feature-pill">
-          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clip-rule="evenodd"/></svg></div>
+        <div class="pill">
+          <span class="pill-num">03</span>
           <h3>Patient pipeline</h3>
-          <p>See every consultation, its commitment status, and what's blocking it — at a glance.</p>
+          <p>See every consultation, its commitment status, and what's blocking it - at a glance.</p>
         </div>
-
-        <div class="feature-pill">
-          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z"/></svg></div>
+        <div class="pill">
+          <span class="pill-num">04</span>
           <h3>Treatment plan + ClinCheck</h3>
           <p>Connect the consultation directly to your clear aligner and treatment plan workflow.</p>
         </div>
-
-        <div class="feature-pill">
-          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"/></svg></div>
+        <div class="pill">
+          <span class="pill-num">05</span>
           <h3>Multi-clinician dashboard</h3>
           <p>Track your team's caseload, action lists, and Smile Train referrals from one screen.</p>
         </div>
-
-        <div class="feature-pill">
-          <div class="feature-pill-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97-1.94.284-3.916.455-5.922.505a.39.39 0 00-.266.112L8.78 21.53A.75.75 0 017.5 21v-3.955a48.842 48.842 0 01-2.652-.316c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97z" clip-rule="evenodd"/></svg></div>
+        <div class="pill">
+          <span class="pill-num">06</span>
           <h3>Loom-style walkthroughs</h3>
           <p>Send patients an asynchronous video walkthrough of their treatment plan and estimate.</p>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- WHY FOUNDER ACCESS -->
-  <section class="why">
+  <section class="light">
     <div class="section-inner">
-      <div class="why-grid">
+      <div class="two-col">
         <div>
           <span class="section-tag">Why founder access</span>
-          <h2 class="section-title">Be one of the <em>first 50 practices</em> — and shape what we build next.</h2>
+          <h2 class="section-title minor">Be one of the <em>first 50 practices</em> - and shape what we build next.</h2>
           <div class="why-list">
             <div class="why-item">
-              <div class="why-item-icon">01</div>
-              <div class="why-item-content">
+              <span class="why-num">01</span>
+              <div>
                 <h4>Founder pricing locked in for life</h4>
                 <p>Whatever rate you start on stays your rate, even after public launch.</p>
               </div>
             </div>
             <div class="why-item">
-              <div class="why-item-icon">02</div>
-              <div class="why-item-content">
+              <span class="why-num">02</span>
+              <div>
                 <h4>Direct line to the founder</h4>
                 <p>WhatsApp the dentist building it. No ticket queue, no "raise it with support".</p>
               </div>
             </div>
             <div class="why-item">
-              <div class="why-item-icon">03</div>
-              <div class="why-item-content">
+              <span class="why-num">03</span>
+              <div>
                 <h4>You set the roadmap</h4>
                 <p>What founder cohort asks for, we build next. That's the whole deal.</p>
               </div>
@@ -775,15 +200,15 @@
           </div>
         </div>
 
-        <div class="why-card">
-          <h3>"Most consultation software is built by people who've never sat in the chair."</h3>
-          <p>I'm a UK GDC-registered clinical director. I built SmileOS because every existing tool either treated the consultation as a glorified PDF or buried it under twelve dropdowns.</p>
-          <p>If you sign up as a founder, you're not buying a finished product — you're buying a relationship with the dentist building it. That's it. That's the offer.</p>
-          <div class="why-card-signature">
-            <div class="founder-avatar" style="width: 48px; height: 48px; font-size: 1.1rem; margin: 0;">HI</div>
+        <div class="col-visual">
+          <h3 class="font-display" style="font-size: 26px; line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 18px;">"Most consultation software is built by people who've never sat in the chair."</h3>
+          <p style="margin-bottom: 14px; color: var(--body);">I'm a UK GDC-registered clinical director. I built SmileOS because every existing tool either treated the consultation as a glorified PDF or buried it under twelve dropdowns.</p>
+          <p style="color: var(--body);">If you sign up as a founder, you're not buying a finished product - you're buying a relationship with the dentist building it. That's it. That's the offer.</p>
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 14px;">
+            <span style="width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: var(--mint); display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 800; font-size: 16px;">HI</span>
             <div>
-              <div class="founder-name">Haroon Ismail</div>
-              <div class="founder-role">Founder, SmileOS</div>
+              <div style="font-weight: 600; font-size: 16px;">Haroon Ismail</div>
+              <div style="color: var(--muted-2); font-size: 14px;">Founder, SmileOS</div>
             </div>
           </div>
         </div>
@@ -792,31 +217,34 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="how" id="how">
+  <section id="how">
     <div class="section-inner">
       <div class="section-head">
         <span class="section-tag">How it works</span>
         <h2 class="section-title">Three steps. <em>No demo gauntlet.</em></h2>
       </div>
-      <div class="how-grid">
-        <div class="how-step">
+      <div class="step-grid">
+        <div class="step">
+          <div class="step-num">01</div>
           <h3>Claim your spot</h3>
           <p>Email Haroon directly. You'll get a reply the same day with a short call slot or your access link.</p>
         </div>
-        <div class="how-step">
+        <div class="step">
+          <div class="step-num">02</div>
           <h3>60 days, all features</h3>
-          <p>You get the full platform — consultations, consent, estimates, dashboard. No card. No "upgrade to unlock".</p>
+          <p>You get the full platform - consultations, consent, estimates, dashboard. No card. No "upgrade to unlock".</p>
         </div>
-        <div class="how-step">
+        <div class="step">
+          <div class="step-num">03</div>
           <h3>Lock in founder rate</h3>
-          <p>If it works for your practice, founder pricing stays your pricing — for as long as you're with us.</p>
+          <p>If it works for your practice, founder pricing stays your pricing - for as long as you're with us.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OFFER / PRICING -->
-  <section class="offer" id="claim">
+  <!-- OFFER / CLAIM -->
+  <section class="dark" id="claim">
     <div class="section-inner">
       <div class="section-head">
         <span class="section-tag">The founder offer</span>
@@ -825,70 +253,65 @@
       </div>
 
       <div class="offer-card">
-        <div class="offer-rows">
-          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>60 days free</strong> — every feature, no restrictions</span></div>
-          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>No credit card</strong> required up-front</span></div>
-          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>Founder pricing locked in</strong> — your rate, for life</span></div>
-          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>Direct line</strong> to Haroon throughout the trial</span></div>
-          <div class="offer-row"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span><strong>Cancel any time</strong> — keep your data, walk away clean</span></div>
-        </div>
+        <ul class="checklist" style="margin-bottom: 26px;">
+          <li><span><strong>60 days free</strong> - every feature, no restrictions</span></li>
+          <li><span><strong>No credit card</strong> required up-front</span></li>
+          <li><span><strong>Founder pricing locked in</strong> - your rate, for life</span></li>
+          <li><span><strong>Direct line</strong> to Haroon throughout the trial</span></li>
+          <li><span><strong>Cancel any time</strong> - keep your data, walk away clean</span></li>
+        </ul>
 
-        <div class="offer-price-row">
-          <span class="offer-price">£0</span>
-          <span class="offer-price-strike">£99/mo</span>
-          <span class="offer-price-suffix">for the first 60 days</span>
+        <div class="offer-price">
+          <span class="amount">£0</span>
+          <span class="strike">£99/mo</span>
+          <span class="qualifier">for the first 60 days</span>
         </div>
 
         <form class="claim-form" id="claim-form" novalidate>
-          <div class="claim-form-grid">
-            <div class="claim-field">
+          <div class="offer-form">
+            <div>
               <label for="cf-name">Your name *</label>
               <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Dr Jane Smith" />
             </div>
-            <div class="claim-field">
+            <div>
               <label for="cf-email">Email *</label>
               <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@yourpractice.co.uk" />
             </div>
-          </div>
-          <div class="claim-field">
-            <label for="cf-practice">Practice name *</label>
-            <input id="cf-practice" name="practice_name" type="text" autocomplete="organization" required placeholder="Your practice" />
-          </div>
-          <div class="claim-form-grid">
-            <div class="claim-field">
+            <div class="full">
+              <label for="cf-practice">Practice name *</label>
+              <input id="cf-practice" name="practice_name" type="text" autocomplete="organization" required placeholder="Your practice" />
+            </div>
+            <div>
               <label for="cf-clinicians">Clinician(s)</label>
               <input id="cf-clinicians" name="clinicians" type="text" placeholder="e.g. 2 dentists, 1 hygienist" />
             </div>
-            <div class="claim-field">
+            <div>
               <label for="cf-consults">Average monthly consultations</label>
               <input id="cf-consults" name="monthly_consultations" type="text" inputmode="numeric" placeholder="e.g. 30" />
             </div>
           </div>
-          <div class="claim-hp" aria-hidden="true">
+          <div class="hp-field" aria-hidden="true">
             <label for="cf-website">Website</label>
             <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
           </div>
-          <div class="claim-error" id="claim-error" role="alert"></div>
-          <button type="submit" class="btn-primary offer-cta">
-            Claim Founder Access
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-          </button>
+          <div class="form-status err" id="claim-error" role="alert" style="display: none;"></div>
+          <button type="submit" class="offer-submit">Claim founder access</button>
         </form>
-        <div class="claim-success" id="claim-success">
-          <h3>Request received ✓</h3>
-          <p>Thanks — you'll hear back from Haroon directly, usually within the same working day. We'll confirm spots are still open before you commit anything.</p>
+        <div class="form-status ok" id="claim-success" style="display: none;">
+          <strong style="display: block; font-size: 18px; margin-bottom: 8px;">Request received ✓</strong>
+          Thanks - you'll hear back from Haroon directly, usually within the same working day. We'll confirm spots are still open before you commit anything.
         </div>
-        <p class="offer-fineprint">Reply usually within the same working day. We'll confirm spots are still open before you commit anything. Prefer email? <a href="mailto:haroonismail87@gmail.com" style="color: rgba(255,255,255,0.75); text-decoration: underline;">haroonismail87@gmail.com</a> By submitting this form you agree to our <a href="/privacy.html" style="color: rgba(255,255,255,0.75); text-decoration: underline;">privacy policy</a>.</p>
+        <p class="offer-fineprint">Reply usually within the same working day. We'll confirm spots are still open before you commit anything. Prefer email? <a href="mailto:haroonismail87@gmail.com">haroonismail87@gmail.com</a> By submitting this form you agree to our <a href="/privacy.html">privacy policy</a>.</p>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="faq">
-    <div class="section-inner">
+  <section class="light">
+    <div class="section-inner prose">
       <div class="section-head">
         <span class="section-tag">Common questions</span>
-        <h2 class="section-title">Founder access, <em>straight answers</em>.</h2>
+        <h2 class="section-title minor">Founder access, <em>straight answers</em>.</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item">
@@ -901,47 +324,41 @@
         </details>
         <details class="faq-item">
           <summary>What happens after the 60 days?</summary>
-          <p>I'll get in touch before the trial ends. If it's working for your practice, you move onto founder pricing. If it isn't, you walk away — we'll help you export your data.</p>
+          <p>I'll get in touch before the trial ends. If it's working for your practice, you move onto founder pricing. If it isn't, you walk away - we'll help you export your data.</p>
         </details>
         <details class="faq-item">
           <summary>Who built this and why should I trust it?</summary>
-          <p>I'm Haroon — a UK GDC-registered clinical director. I'm building SmileOS because the consultation workflow in my own practice was broken, and existing tools didn't fix it. You can email me at any time.</p>
+          <p>I'm Haroon - a UK GDC-registered clinical director. I'm building SmileOS because the consultation workflow in my own practice was broken, and existing tools didn't fix it. You can email me at any time.</p>
         </details>
         <details class="faq-item">
           <summary>Is my patient data safe?</summary>
-          <p>Your practice data is tenant-scoped on every API request, hosted on UK/EU infrastructure (Supabase), and isolated from other practices. We're still maturing the formal compliance surface (DPA, DPIA, ICO registration) — happy to talk through where we're at on a call before you sign anything.</p>
+          <p>Your practice data is tenant-scoped on every API request, hosted on Supabase Postgres in AWS London (eu-west-2), and isolated from other practices. Dr Hi Ltd is registered with the ICO as a data controller, reference ZC221978. We're still maturing the rest of the formal compliance surface (DPA template, DPIA) - happy to talk through where we're at on a call before you sign anything. See <a href="/trust.html">Trust</a> for the full breakdown.</p>
         </details>
         <details class="faq-item">
           <summary>What if it's not the right fit?</summary>
-          <p>That's fine. Cancel any time during the trial — no card, no commitment. If you'd cancel after that, give 30 days' notice and we'll help you export everything.</p>
+          <p>That's fine. Cancel any time during the trial - no card, no commitment. If you'd cancel after that, give 30 days' notice and we'll help you export everything.</p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
-  <section class="final-cta">
-    <div class="section-inner">
+  <section class="cta-band">
+    <div class="cta-band-inner">
       <span class="section-tag">Founder cohort closing soon</span>
       <h2 class="section-title">Ready to be one of <em>the first 50</em>?</h2>
       <p class="section-sub">60 days free. No card. Founder pricing locked in. One direct email to the dentist building it.</p>
-      <a href="#claim" class="final-cta-btn">
-        Claim Founder Access
+      <a href="#claim" class="cta-band-btn">
+        Claim founder access
         <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
       </a>
-      <div class="final-cta-micro">
-        <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> 60 days free</span>
-        <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> No card</span>
-        <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Cancel anytime</span>
-      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">Smile<span>OS</span></div>
+        <div class="footer-logo"><span class="mark">S</span>SmileOS</div>
         <p class="footer-desc">The AI-assisted consultation platform for UK dental practices. Built by a GDC-registered clinical director.</p>
       </div>
       <div class="footer-col"><h5>Product</h5><ul>
@@ -973,60 +390,7 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var ENDPOINT = '/api/founder-access';
-      var form = document.getElementById('claim-form');
-      if (!form) return;
-      var errorBox = document.getElementById('claim-error');
-      var successBox = document.getElementById('claim-success');
-      var button = form.querySelector('button[type="submit"]');
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        errorBox.style.display = 'none';
-
-        var payload = {
-          name: form.name.value,
-          email: form.email.value,
-          practice_name: form.practice_name.value,
-          clinicians: form.clinicians.value,
-          monthly_consultations: form.monthly_consultations.value,
-          website: form.website.value,
-          plan: new URLSearchParams(location.search).get('plan') || '',
-          source_page: location.pathname + location.search
-        };
-
-        if (!payload.name.trim() || !payload.practice_name.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email.trim())) {
-          errorBox.textContent = 'Please fill in your name, a valid email, and your practice name.';
-          errorBox.style.display = 'block';
-          return;
-        }
-
-        button.disabled = true;
-        fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        }).then(function (res) {
-          return res.json().catch(function () { return {}; }).then(function (data) {
-            if (res.ok && data.ok) {
-              form.style.display = 'none';
-              successBox.style.display = 'block';
-            } else {
-              throw new Error(data.error || 'Request failed');
-            }
-          });
-        }).catch(function (err) {
-          button.disabled = false;
-          errorBox.innerHTML = (err.message === 'Failed to fetch'
-            ? 'Something went wrong sending your request.'
-            : err.message) + ' You can also email <a href="mailto:haroonismail87@gmail.com">haroonismail87@gmail.com</a> directly.';
-          errorBox.style.display = 'block';
-        });
-      });
-    })();
-  </script>
-
+  <script src="/assets/nav.js"></script>
+  <script src="/assets/claim-form.js"></script>
 </body>
 </html>
