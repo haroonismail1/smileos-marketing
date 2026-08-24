@@ -207,17 +207,20 @@ section { padding: 92px var(--pad-x); }
 .section-title em { font-style: italic; color: var(--indigo); }
 .section-sub { font: 400 19px/1.6 var(--sans); color: var(--body); max-width: 720px; text-wrap: pretty; }
 .section-head .section-sub { margin: 0 auto; }
-.section.light { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.section.dark { background: var(--dark); color: #fff; position: relative; overflow: hidden; }
-.section.dark::before {
+/* Keyed on the bare class: the markup is <section class="dark">, so a compound
+   .section.dark never matches. The descendant rules below (and .dark
+   .checklist li, .dark .btn-secondary) already use the bare class. */
+.light { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.dark { background: var(--dark); color: #fff; position: relative; overflow: hidden; }
+.dark::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse 55% 60% at 72% 28%, rgba(90, 49, 224, 0.4) 0%, transparent 60%);
 }
-.section.dark > * { position: relative; z-index: 1; }
-.section.dark .section-title { color: #fff; }
-.section.dark .section-title em { color: var(--emerald-hover); }
-.section.dark .section-sub { color: var(--on-dark-mute); }
-.section.dark .section-tag { color: var(--emerald-hover); background: rgba(18, 183, 106, 0.16); }
+.dark > * { position: relative; z-index: 1; }
+.dark .section-title { color: #fff; }
+.dark .section-title em { color: var(--emerald-hover); }
+.dark .section-sub { color: var(--on-dark-mute); }
+.dark .section-tag { color: var(--emerald-hover); background: rgba(18, 183, 106, 0.16); }
 
 /* BUTTONS */
 .btn-primary {
@@ -432,7 +435,9 @@ section { padding: 92px var(--pad-x); }
 .roadmap-tag.later { color: var(--muted); background: var(--indigo-tint); }
 
 /* TWO-COL */
-.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: clamp(40px, 5vw, 72px); align-items: center; }
+/* min() so the 360px track floor can't exceed the container on narrow
+   viewports - a bare minmax(360px, 1fr) overflows below ~400px. */
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: clamp(40px, 5vw, 72px); align-items: center; }
 .two-col .col-visual {
   background: var(--canvas); border: 1px solid var(--border);
   border-radius: var(--r-xl); padding: 38px; position: relative; overflow: hidden;
