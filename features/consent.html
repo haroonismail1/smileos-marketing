@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consent &amp; Estimates — SmileOS</title>
-  <meta name="description" content="Electronic consent and personalised estimates generated from the consultation. Signed in-chair or remotely, audited by default." />
+  <meta name="description" content="Generate a personalised estimate and capture treatment consent inside the consultation, with Stripe payment collection." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/styles.css" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <link rel="canonical" href="https://www.smileos.co.uk/features/consent.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SmileOS" />
-  <meta property="og:title" content="Consent &amp;amp; Estimates — SmileOS" />
-  <meta property="og:description" content="Electronic consent and personalised estimates generated from the consultation. Signed in-chair or remotely, audited by default." />
+  <meta property="og:title" content="Consent &amp; Estimates — SmileOS" />
+  <meta property="og:description" content="Generate a personalised estimate and capture treatment consent inside the consultation, with Stripe payment collection." />
   <meta property="og:url" content="https://www.smileos.co.uk/features/consent.html" />
   <meta property="og:image" content="https://www.smileos.co.uk/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -23,119 +23,149 @@
   <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
-
   <div class="urgency-strip">
     <span class="dot"></span>
-    <strong>Founder Cohort:</strong> 60 days free, no card. Founder pricing locked in for life.
+    <strong>Founder cohort</strong>
+    <span>60 days free, no card. Founder pricing locked in for life.</span>
   </div>
-
   <nav class="site-nav">
-    <a href="/" class="nav-logo"><span class="mark">S</span>SmileOS</a>
+    <a href="../index.html" class="nav-logo"><span class="mark">S</span>SmileOS</a>
     <ul class="nav-links">
       <li><button type="button" data-panel="features" aria-expanded="false">Features ▾</button></li>
       <li><button type="button" data-panel="team" aria-expanded="false">For your team ▾</button></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/compare.html">Compare</a></li>
-      <li><a href="/trust.html">Trust</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../compare.html">Compare</a></li>
+      <li><a href="../trust.html">Trust</a></li>
     </ul>
     <span class="nav-spacer"></span>
     <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
     <a href="https://app.smileos.co.uk" class="nav-login">Log in</a>
-    <a href="/?src=consent#claim" class="nav-cta">Claim founder access</a>
+    <a href="../index.html?src=consent#claim" class="nav-cta">Claim founder access</a>
   </nav>
   <div class="nav-panel" id="nav-panel-features" hidden>
     <div class="nav-panel-inner">
-      <a href="/features/consultations.html">AI-assisted consultations</a>
-      <a href="/features/ai-clinical-notes.html">AI clinical notes</a>
-      <a href="/features/consent.html">Consent &amp; estimates</a>
-      <a href="/features/dashboard.html">Practice dashboard</a>
+      <a href="../features/consultations.html">AI-assisted consultations</a>
+      <a href="../features/ai-clinical-notes.html">AI clinical notes</a>
+      <a href="../features/consent.html">Consent &amp; estimates</a>
+      <a href="../features/dashboard.html">Practice dashboard</a>
     </div>
   </div>
   <div class="nav-panel" id="nav-panel-team" hidden>
     <div class="nav-panel-inner">
-      <a href="/for/dentists.html">Dentists</a>
-      <a href="/for/hygienists.html">Hygienists</a>
-      <a href="/for/dental-nurses.html">Dental nurses</a>
-      <a href="/for/practice-managers.html">Practice managers</a>
-      <a href="/for/dental-groups.html">Dental groups</a>
+      <a href="../for/dentists.html">Dentists</a>
+      <a href="../for/hygienists.html">Hygienists</a>
+      <a href="../for/dental-nurses.html">Dental nurses</a>
+      <a href="../for/practice-managers.html">Practice managers</a>
+      <a href="../for/dental-groups.html">Dental groups</a>
     </div>
   </div>
-
-  <header class="page-hero">
+  <header class="page-hero sub">
     <div class="page-hero-inner">
-      <span class="hero-eyebrow">Feature · Consent &amp; estimates</span>
-      <h1 class="sub">Consent signed before they leave. <em>Estimate in their inbox.</em></h1>
-      <p class="lede">No more "I'll email it later". The consultation note auto-populates consent and estimate documents. Patient signs in-chair or remotely. Both are timestamped, audit-logged, and tied to the case file forever.</p>
-      <a href="/?src=consent#claim" class="btn-primary">Claim Founder Access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+      <div>
+        <span class="hero-eyebrow">Feature · Consent &amp; estimates</span>
+        <h1 class="sub" style="margin-top:26px">Consent and estimate, <em>signed in the chair.</em></h1>
+        <p class="lede">Generate a personalised estimate from the consultation you just recorded, walk the patient through it, and capture treatment consent and payment without leaving the appointment.</p>
+        <div class="hero-ctas">
+          <a href="../index.html?src=consent#claim" class="btn-primary">Claim founder access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+          <a href="../pricing.html" class="btn-secondary">See pricing</a>
+        </div>
+        <div class="hero-trust"><h4>Verifiable, not badge-ware</h4><div class="chip-row"><span class="chip">GDC-registered founder</span><span class="chip">UK-hosted · AWS London</span><span class="chip">ICO registered · ZC221978</span><span class="chip">60 days free · no card</span></div></div>
+      </div>
+      <aside class="shot" aria-label="Product screenshot placeholder">
+        <div class="shot-bar"><i></i><i></i><i></i><span>app.smileos.co.uk</span></div>
+        <div class="shot-body sm"><b>Screenshot</b><p>Estimate builder beside the consent signature panel.</p></div>
+      </aside>
     </div>
   </header>
-
   <section>
-    <div class="section-inner">
-      <div class="section-head">
-        <span class="section-tag">What you get</span>
-        <h2 class="section-title">Six things <em>that close cases faster</em>.</h2>
-      </div>
-      <div class="pill-grid">
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Auto-populated from consult</h3><p>Patient details, treatment options, pricing - pulled from the consultation, not retyped.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>E-signature, in-chair or remote</h3><p>Patient signs on the iPad before they leave, or via a secure link if they want to take it home. Tap-to-sign on phone.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Automatic email delivery</h3><p>Estimate hits the patient's inbox within seconds of being generated. Patient and practice both get the audit trail.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Reminder logic built in</h3><p>Unsigned consents get reminder emails at 2 and 3 days. You stop chasing.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Audit log per action</h3><p>Created at X. Sent at Y. Viewed at Z. Signed at W. Searchable, immutable.</p></div>
-        <div class="pill"><span class="roadmap-tag coming">Coming Q3</span><h3>Pre-built consent templates</h3><p>UK dentistry-specific templates (clear aligner consent, composite bonding consent, whitening consent) co-designed with a dental defence union.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="light">
     <div class="section-inner">
       <div class="section-head">
         <span class="section-tag">How it works</span>
-        <h2 class="section-title">Consent in <em>two clicks</em>.</h2>
+        <h2 class="section-title minor">Build, present, <em>capture</em>.</h2>
       </div>
       <div class="step-grid">
-        <div class="step"><div class="step-num">01</div><h3>Generate from the consult</h3><p>One click on the case file. Consent and estimate documents draft themselves from the consultation note.</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Send to patient</h3><p>Email link with secure access - no login required. Patient reads, signs on their phone or in-chair on the iPad.</p></div>
-        <div class="step"><div class="step-num">03</div><h3>Case advances</h3><p>Signed consent moves the case to the next pipeline stage automatically. Estimate becomes the payment trigger.</p></div>
+        <div class="step"><div class="step-num">01</div><h3>Build the estimate</h3><p>Treatment options and fees populate from the consultation note. Adjust, add stages, set deposits.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Present it</h3><p>Show the patient on screen, or send a video walkthrough they can rewatch at home.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Capture consent</h3><p>Treatment consent and deposit collected in the same session, filed against the case.</p></div>
       </div>
     </div>
   </section>
-
-  <section>
+  <section class="light">
     <div class="section-inner">
       <div class="section-head">
-        <span class="section-tag">Where we are, where we're going</span>
-        <h2 class="section-title">The honest <em>roadmap</em>.</h2>
+        <span class="section-tag">What you get</span>
+        <h2 class="section-title minor">What's <em>in the flow</em> today.</h2>
       </div>
-      <div class="honesty-grid">
-        <div class="honesty-card live"><h4><span class="roadmap-tag live">Live</span> Custom consent blocks</h4><p>Practices can build consent documents from their own blocks today. Flexible, but bring-your-own-template.</p></div>
-        <div class="honesty-card coming"><h4><span class="roadmap-tag coming">Coming Q3</span> GDC/CQC-aligned templates</h4><p>We're working with a UK dental defence union to publish vetted templates for common procedures. Not certified, but reviewed by people who do this for a living.</p></div>
-        <div class="honesty-card coming"><h4><span class="roadmap-tag coming">Coming Q3</span> PDF rendering</h4><p>Polished PDF version of every signed consent for your records and patient downloads.</p></div>
-        <div class="honesty-card coming"><h4><span class="roadmap-tag coming">Coming Q4</span> Witness / clinician co-signature</h4><p>Required for high-risk procedures. Today we capture clinician sign-off only.</p></div>
+      <div class="pill-grid">
+        <div class="pill"><span class="tag live">Live</span><h3>Personalised estimates</h3><p>Staged treatment costs built from the consultation, not retyped from a price list.</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Treatment consent capture</h3><p>Consent signed digitally against the case, with the note it was based on attached.</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Estimate to patient inbox</h3><p>One click sends the estimate and consent record to the patient.</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Stripe payment collection</h3><p>Deposits and payments run through Stripe. We never touch card data.</p></div>
+        <div class="pill"><span class="tag soon">Coming Q3</span><h3>Patient-facing portal</h3><p>Patients view their treatment plan and payment history themselves.</p></div>
+        <div class="pill"><span class="tag soon">Coming Q3</span><h3>Case acceptance analytics</h3><p>Which estimates convert, which stall, and where they stall.</p></div>
       </div>
     </div>
   </section>
-
+  <section>
+    <div class="section-inner">
+      <div class="limits">
+        <span class="section-tag" style="color:var(--mint)">Limits we're honest about</span>
+        <h2 class="section-title minor" style="margin-bottom:40px">What this <em>isn't</em>.</h2>
+        <div class="limits-grid">
+          <div class="limit"><h3>The consent wording is yours</h3><p>We provide the flow and the record. The clinical wording is approved by your practice.</p></div>
+          <div class="limit"><h3>Not legal or regulatory advice</h3><p>SmileOS documents consent. It does not decide what constitutes valid consent in your jurisdiction.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="cta-band">
     <div class="cta-band-inner">
-      <h2 class="section-title">See it on <em>your next consult</em>.</h2>
-      <p class="section-sub">60 days free. No card. Founder pricing locked in.</p>
-      <a href="/?src=consent#claim" class="cta-band-btn">Claim Founder Access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+      <div>
+        <span class="section-tag">Founder cohort closing soon</span>
+        <h2 class="section-title">Close the case <em>before they leave</em>.</h2>
+        <p class="section-sub">60 days free. No card. Founder pricing locked in.</p>
+      </div>
+      <div>
+        <a href="../index.html?src=consent#claim" class="cta-band-btn">Claim founder access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+        <p class="cta-band-note">60 days free · No card · Cancel anytime</p>
+      </div>
     </div>
   </section>
-
   <footer class="site-footer">
     <div class="footer-grid">
-      <div><div class="footer-logo"><span class="mark">S</span>SmileOS</div><p class="footer-desc">The AI-assisted consultation platform for UK dental practices. Built by a GDC-registered clinical director.</p></div>
-      <div class="footer-col"><h5>Product</h5><ul><li><a href="/features/consultations.html">Consultations</a></li><li><a href="/features/ai-clinical-notes.html">AI clinical notes</a></li><li><a href="/features/consent.html">Consent &amp; estimates</a></li><li><a href="/features/dashboard.html">Dashboard</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/compare.html">Compare</a></li></ul></div>
-      <div class="footer-col"><h5>For your team</h5><ul><li><a href="/for/dentists.html">Dentists</a></li><li><a href="/for/hygienists.html">Hygienists</a></li><li><a href="/for/dental-nurses.html">Dental nurses</a></li><li><a href="/for/practice-managers.html">Practice managers</a></li><li><a href="/for/dental-groups.html">Dental groups</a></li></ul></div>
-      <div class="footer-col"><h5>Company</h5><ul><li><a href="/trust.html">Trust &amp; security</a></li><li><a href="mailto:haroonismail87@gmail.com">Contact founder</a></li>
-        <li><a href="/privacy.html">Privacy policy</a></li>
-        <li><a href="/terms.html">Terms of use</a></li><li><a href="/?src=consent#claim">Claim founder access</a></li></ul></div>
+      <div>
+        <div class="footer-logo"><span class="mark">S</span>SmileOS</div>
+        <p class="footer-desc">The AI-assisted consultation platform for UK dental practices. Built by a GDC-registered clinical director.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5><ul>
+        <li><a href="../features/consultations.html">Consultations</a></li>
+        <li><a href="../features/ai-clinical-notes.html">AI clinical notes</a></li>
+        <li><a href="../features/consent.html">Consent &amp; estimates</a></li>
+        <li><a href="../features/dashboard.html">Dashboard</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../compare.html">Compare</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>For your team</h5><ul>
+        <li><a href="../for/dentists.html">Dentists</a></li>
+        <li><a href="../for/hygienists.html">Hygienists</a></li>
+        <li><a href="../for/dental-nurses.html">Dental nurses</a></li>
+        <li><a href="../for/practice-managers.html">Practice managers</a></li>
+        <li><a href="../for/dental-groups.html">Dental groups</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Company</h5><ul>
+        <li><a href="../trust.html">Trust &amp; security</a></li>
+        <li><a href="mailto:haroonismail87@gmail.com">Contact founder</a></li>
+        <li><a href="../privacy.html">Privacy policy</a></li>
+        <li><a href="../terms.html">Terms of use</a></li>
+        <li><a href="../index.html?src=consent#claim">Claim founder access</a></li>
+      </ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Dr Hi Ltd (t/a SmileOS) · Registered in Scotland SC728925 · Cornerstone House, Station Road, Selkirk TD7 5DJ</span><span>Built by a UK GDC-registered clinical director.</span></div>
+    <div class="footer-bottom">
+      <span>© 2026 Dr Hi Ltd (t/a SmileOS) · Registered in Scotland SC728925 · Cornerstone House, Station Road, Selkirk TD7 5DJ</span>
+      <span>Built by a UK GDC-registered clinical director.</span>
+    </div>
   </footer>
 
-  <script src="/assets/nav.js"></script>
+  <script src="../assets/nav.js"></script>
 </body>
 </html>

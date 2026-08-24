@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Clinical Notes — SmileOS</title>
-  <meta name="description" content="AI-assisted clinical notes from voice. You dictate, SmileOS structures the note, you edit and sign. Built for UK dentists, by a UK dentist." />
+  <meta name="description" content="Dictate the consultation and get a structured, editable clinical note back — signed before the patient leaves." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/styles.css" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <link rel="canonical" href="https://www.smileos.co.uk/features/ai-clinical-notes.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SmileOS" />
   <meta property="og:title" content="AI Clinical Notes — SmileOS" />
-  <meta property="og:description" content="AI-assisted clinical notes from voice. You dictate, SmileOS structures the note, you edit and sign. Built for UK dentists, by a UK dentist." />
+  <meta property="og:description" content="Dictate the consultation and get a structured, editable clinical note back — signed before the patient leaves." />
   <meta property="og:url" content="https://www.smileos.co.uk/features/ai-clinical-notes.html" />
   <meta property="og:image" content="https://www.smileos.co.uk/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -23,121 +23,163 @@
   <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
-
   <div class="urgency-strip">
     <span class="dot"></span>
-    <strong>Founder Cohort:</strong> 60 days free, no card. Founder pricing locked in for life.
+    <strong>Founder cohort</strong>
+    <span>60 days free, no card. Founder pricing locked in for life.</span>
   </div>
-
   <nav class="site-nav">
-    <a href="/" class="nav-logo"><span class="mark">S</span>SmileOS</a>
+    <a href="../index.html" class="nav-logo"><span class="mark">S</span>SmileOS</a>
     <ul class="nav-links">
       <li><button type="button" data-panel="features" aria-expanded="false">Features ▾</button></li>
       <li><button type="button" data-panel="team" aria-expanded="false">For your team ▾</button></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/compare.html">Compare</a></li>
-      <li><a href="/trust.html">Trust</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../compare.html">Compare</a></li>
+      <li><a href="../trust.html">Trust</a></li>
     </ul>
     <span class="nav-spacer"></span>
     <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
     <a href="https://app.smileos.co.uk" class="nav-login">Log in</a>
-    <a href="/?src=ai-clinical-notes#claim" class="nav-cta">Claim founder access</a>
+    <a href="../index.html?src=ai-notes#claim" class="nav-cta">Claim founder access</a>
   </nav>
   <div class="nav-panel" id="nav-panel-features" hidden>
     <div class="nav-panel-inner">
-      <a href="/features/consultations.html">AI-assisted consultations</a>
-      <a href="/features/ai-clinical-notes.html">AI clinical notes</a>
-      <a href="/features/consent.html">Consent &amp; estimates</a>
-      <a href="/features/dashboard.html">Practice dashboard</a>
+      <a href="../features/consultations.html">AI-assisted consultations</a>
+      <a href="../features/ai-clinical-notes.html">AI clinical notes</a>
+      <a href="../features/consent.html">Consent &amp; estimates</a>
+      <a href="../features/dashboard.html">Practice dashboard</a>
     </div>
   </div>
   <div class="nav-panel" id="nav-panel-team" hidden>
     <div class="nav-panel-inner">
-      <a href="/for/dentists.html">Dentists</a>
-      <a href="/for/hygienists.html">Hygienists</a>
-      <a href="/for/dental-nurses.html">Dental nurses</a>
-      <a href="/for/practice-managers.html">Practice managers</a>
-      <a href="/for/dental-groups.html">Dental groups</a>
+      <a href="../for/dentists.html">Dentists</a>
+      <a href="../for/hygienists.html">Hygienists</a>
+      <a href="../for/dental-nurses.html">Dental nurses</a>
+      <a href="../for/practice-managers.html">Practice managers</a>
+      <a href="../for/dental-groups.html">Dental groups</a>
     </div>
   </div>
-
-  <header class="page-hero">
+  <header class="page-hero sub">
     <div class="page-hero-inner">
-      <span class="hero-eyebrow">Feature · AI clinical notes</span>
-      <h1 class="sub">Notes during the consult. <em>Not at 11pm.</em></h1>
-      <p class="lede">Dictate naturally. SmileOS turns it into a structured clinical note - concerns, goals, treatment options, summary - that you can edit, sign, and forget about until next time.</p>
-      <a href="/?src=ai-clinical-notes#claim" class="btn-primary">Claim Founder Access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+      <div>
+        <span class="hero-eyebrow">Feature · AI clinical notes</span>
+        <h1 class="sub" style="margin-top:26px">Notes written once. <em>Signed before the patient leaves.</em></h1>
+        <p class="lede">Dictate the consultation and get a structured, editable note back - concerns, goals, BPE, occlusal class, treatment options - ready to read, correct and sign in the chair rather than at 8pm.</p>
+        <div class="hero-ctas">
+          <a href="../index.html?src=ai-notes#claim" class="btn-primary">Claim founder access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+          <a href="../pricing.html" class="btn-secondary">See pricing</a>
+        </div>
+        <div class="hero-trust"><h4>Verifiable, not badge-ware</h4><div class="chip-row"><span class="chip">GDC-registered founder</span><span class="chip">UK-hosted · AWS London</span><span class="chip">ICO registered · ZC221978</span><span class="chip">60 days free · no card</span></div></div>
+      </div>
+      <aside class="shot" aria-label="Product screenshot placeholder">
+        <div class="shot-bar"><i></i><i></i><i></i><span>app.smileos.co.uk</span></div>
+        <div class="shot-body sm"><b>Screenshot</b><p>Note draft with editable clinical fields and signature state.</p></div>
+      </aside>
     </div>
   </header>
-
   <section>
     <div class="section-inner">
       <div class="section-head">
-        <span class="section-tag">What you get</span>
-        <h2 class="section-title">Six things <em>that change Monday morning</em>.</h2>
+        <span class="section-tag">How it works</span>
+        <h2 class="section-title minor">Dictate, review, <em>sign</em>.</h2>
       </div>
-      <div class="pill-grid">
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Concern extraction</h3><p>Patient says "the gap in my front teeth and how my smile leans" - note captures both as discrete concerns.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Treatment goals captured</h3><p>"I want straighter teeth in time for the wedding in November" becomes a structured goal with timeline.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Clinical summary auto-written</h3><p>3 - 5 sentence summary in past tense, ready for the record. You read it, you edit it, you sign it.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Edit any field</h3><p>Every extracted field is editable. The AI never has final say - you do.</p></div>
-        <div class="pill"><span class="roadmap-tag live">Live</span><h3>Audit log on every edit</h3><p>Who wrote it, who edited it, when. Defensible if the GDC ever asks.</p></div>
-        <div class="pill"><span class="roadmap-tag coming">Coming Q3</span><h3>Template library</h3><p>Practice-wide note templates for common consult types - ortho, cosmetic, restorative. Reduces editing time further.</p></div>
+      <div class="step-grid">
+        <div class="step"><div class="step-num">01</div><h3>Dictate</h3><p>Speak the consultation as you normally would. No template to fill, no dropdown gauntlet.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Review</h3><p>The structured draft appears field by field. Correct anything that's wrong - it's a draft, not a decision.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Sign</h3><p>Your signature and timestamp close the note. The record is defensible from that moment.</p></div>
       </div>
     </div>
   </section>
-
   <section class="light">
     <div class="section-inner">
       <div class="section-head">
-        <span class="section-tag">Under the hood</span>
-        <h2 class="section-title">What the AI <em>actually is</em>.</h2>
-        <p class="section-sub">We don't believe in mystery boxes. Here's exactly what's running.</p>
+        <span class="section-tag">What you get</span>
+        <h2 class="section-title minor">What's <em>in the flow</em> today.</h2>
       </div>
-      <div class="honesty-grid">
-        <div class="honesty-card live"><h4><span class="roadmap-tag live">Live</span> Azure OpenAI Whisper for transcription</h4><p>Runs on Microsoft Azure OpenAI under our own subscription, with audio transcribed in the EU (Sweden). We don't train on your data; we don't keep your audio after processing.</p></div>
-        <div class="honesty-card live"><h4><span class="roadmap-tag live">Live</span> Azure OpenAI for extraction</h4><p>Structures the transcript into clinical fields. Prompted with UK dental vocabulary. Output is always JSON you can audit. Safeguarded under the Microsoft DPA (EU SCCs + UK Addendum).</p></div>
-        <div class="honesty-card live"><h4><span class="roadmap-tag live">Live</span> Edit-first, AI-second</h4><p>The AI's job is to give you a starting point. Your edits are the source of truth - every field is yours to change.</p></div>
-        <div class="honesty-card coming"><h4><span class="roadmap-tag coming">Coming</span> UK-dentistry-tuned model</h4><p>We're collecting (anonymised, opt-in) note examples from founder cohort to tune a UK-dental-specific extraction model.</p></div>
+      <div class="pill-grid">
+        <div class="pill"><span class="tag live">Live</span><h3>Structured clinical fields</h3><p>Concerns, goals, BPE, occlusal classification and treatment summary land in named fields, not a wall of text.</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Editable everything</h3><p>Every field is yours to change before signing. Nothing is written to the record without a clinician.</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Signature + timestamp</h3><p>Clinician ID and time recorded on sign-off, with the full edit history behind it.</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Immutable audit log</h3><p>Append-only record of who changed what and when, searchable by the clinical director.</p></div>
+        <div class="pill"><span class="tag soon">Coming Q3</span><h3>Templates per consult type</h3><p>Different structures for cosmetic, ortho and review appointments.</p></div>
+        <div class="pill"><span class="tag soon">Coming Q3</span><h3>Long-form consults</h3><p>Removing the current per-segment recording cap for full-length appointments.</p></div>
       </div>
     </div>
   </section>
-
   <section>
     <div class="section-inner">
       <div class="section-head">
-        <span class="section-tag">FAQ</span>
-        <h2 class="section-title">The questions <em>dentists actually ask</em>.</h2>
+        <span class="section-tag">Under the hood</span>
+        <h2 class="section-title minor">What the AI <em>actually is</em>.</h2>
+        <p class="section-sub">We don't believe in mystery boxes. Here's exactly what's running, and where your data goes.</p>
       </div>
-      <div class="faq-list">
-        <details class="faq-item"><summary>Does this replace my dental indemnity requirements?</summary><p>No. SmileOS is a workflow tool, not a clinical decision-maker. Your indemnity arrangements continue to apply exactly as before.</p></details>
-        <details class="faq-item"><summary>What if the AI mis-hears me?</summary><p>You're reading every note before signing. If the AI mis-hears, you edit. Audit log records every change.</p></details>
-        <details class="faq-item"><summary>Is the patient's voice stored?</summary><p>Audio is processed and discarded - we keep the transcript, not the recording. Founder cohort can opt out of any audio retention entirely.</p></details>
-        <details class="faq-item"><summary>Can I use it in different consult types?</summary><p>Today it's tuned for cosmetic and orthodontic consults. Restorative and general dentistry templates are on the roadmap.</p></details>
+      <div class="pill-grid">
+        <div class="pill"><span class="tag live">Live</span><h3>Azure OpenAI Whisper for transcription</h3><p>Runs on Microsoft Azure OpenAI under our own subscription, with audio transcribed in the EU (Sweden). We don't train on your data; we don't keep your audio after processing.</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Azure OpenAI for extraction</h3><p>Structures the transcript into clinical fields. Prompted with UK dental vocabulary. Output is always JSON you can audit. Safeguarded under the Microsoft DPA (EU SCCs + UK Addendum).</p></div>
+        <div class="pill"><span class="tag live">Live</span><h3>Edit-first, AI-second</h3><p>The AI's job is to give you a starting point. Your edits are the source of truth - every field is yours to change.</p></div>
       </div>
     </div>
   </section>
-
+  <section>
+    <div class="section-inner">
+      <div class="limits">
+        <span class="section-tag" style="color:var(--mint)">Limits we're honest about</span>
+        <h2 class="section-title minor" style="margin-bottom:40px">What this <em>isn't</em>.</h2>
+        <div class="limits-grid">
+          <div class="limit"><h3>The clinician signs, not the model</h3><p>Nothing enters the patient record unread. The note is a draft until you sign it.</p></div>
+          <div class="limit"><h3>No diagnostic claims</h3><p>SmileOS structures what you said. It does not interpret radiographs or suggest treatment.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="cta-band">
     <div class="cta-band-inner">
-      <h2 class="section-title">Try it on a <em>real consult</em>.</h2>
-      <p class="section-sub">60 days. No card. One email.</p>
-      <a href="/?src=ai-clinical-notes#claim" class="cta-band-btn">Claim Founder Access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+      <div>
+        <span class="section-tag">Founder cohort closing soon</span>
+        <h2 class="section-title">Stop writing notes <em>twice</em>.</h2>
+        <p class="section-sub">60 days free. No card. One direct email to the dentist building it.</p>
+      </div>
+      <div>
+        <a href="../index.html?src=ai-notes#claim" class="cta-band-btn">Claim founder access <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+        <p class="cta-band-note">60 days free · No card · Cancel anytime</p>
+      </div>
     </div>
   </section>
-
   <footer class="site-footer">
     <div class="footer-grid">
-      <div><div class="footer-logo"><span class="mark">S</span>SmileOS</div><p class="footer-desc">The AI-assisted consultation platform for UK dental practices. Built by a GDC-registered clinical director.</p></div>
-      <div class="footer-col"><h5>Product</h5><ul><li><a href="/features/consultations.html">Consultations</a></li><li><a href="/features/ai-clinical-notes.html">AI clinical notes</a></li><li><a href="/features/consent.html">Consent &amp; estimates</a></li><li><a href="/features/dashboard.html">Dashboard</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/compare.html">Compare</a></li></ul></div>
-      <div class="footer-col"><h5>For your team</h5><ul><li><a href="/for/dentists.html">Dentists</a></li><li><a href="/for/hygienists.html">Hygienists</a></li><li><a href="/for/dental-nurses.html">Dental nurses</a></li><li><a href="/for/practice-managers.html">Practice managers</a></li><li><a href="/for/dental-groups.html">Dental groups</a></li></ul></div>
-      <div class="footer-col"><h5>Company</h5><ul><li><a href="/trust.html">Trust &amp; security</a></li><li><a href="mailto:haroonismail87@gmail.com">Contact founder</a></li>
-        <li><a href="/privacy.html">Privacy policy</a></li>
-        <li><a href="/terms.html">Terms of use</a></li><li><a href="/?src=ai-clinical-notes#claim">Claim founder access</a></li></ul></div>
+      <div>
+        <div class="footer-logo"><span class="mark">S</span>SmileOS</div>
+        <p class="footer-desc">The AI-assisted consultation platform for UK dental practices. Built by a GDC-registered clinical director.</p>
+      </div>
+      <div class="footer-col"><h5>Product</h5><ul>
+        <li><a href="../features/consultations.html">Consultations</a></li>
+        <li><a href="../features/ai-clinical-notes.html">AI clinical notes</a></li>
+        <li><a href="../features/consent.html">Consent &amp; estimates</a></li>
+        <li><a href="../features/dashboard.html">Dashboard</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../compare.html">Compare</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>For your team</h5><ul>
+        <li><a href="../for/dentists.html">Dentists</a></li>
+        <li><a href="../for/hygienists.html">Hygienists</a></li>
+        <li><a href="../for/dental-nurses.html">Dental nurses</a></li>
+        <li><a href="../for/practice-managers.html">Practice managers</a></li>
+        <li><a href="../for/dental-groups.html">Dental groups</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Company</h5><ul>
+        <li><a href="../trust.html">Trust &amp; security</a></li>
+        <li><a href="mailto:haroonismail87@gmail.com">Contact founder</a></li>
+        <li><a href="../privacy.html">Privacy policy</a></li>
+        <li><a href="../terms.html">Terms of use</a></li>
+        <li><a href="../index.html?src=ai-notes#claim">Claim founder access</a></li>
+      </ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Dr Hi Ltd (t/a SmileOS) · Registered in Scotland SC728925 · Cornerstone House, Station Road, Selkirk TD7 5DJ</span><span>Built by a UK GDC-registered clinical director.</span></div>
+    <div class="footer-bottom">
+      <span>© 2026 Dr Hi Ltd (t/a SmileOS) · Registered in Scotland SC728925 · Cornerstone House, Station Road, Selkirk TD7 5DJ</span>
+      <span>Built by a UK GDC-registered clinical director.</span>
+    </div>
   </footer>
 
-  <script src="/assets/nav.js"></script>
+  <script src="../assets/nav.js"></script>
 </body>
 </html>
