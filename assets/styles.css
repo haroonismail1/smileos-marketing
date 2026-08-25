@@ -607,6 +607,9 @@ footer.site-footer { background: var(--indigo-deep); color: rgba(255, 255, 255, 
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
 .footer-col a { font: 400 14.5px/1.4 var(--sans); color: rgba(255, 255, 255, 0.62); transition: color 0.2s; }
 .footer-col a:hover { color: #fff; }
+/* Not a link — sets the response expectation next to the WhatsApp number so a
+   number on every page doesn't read as an always-on promise. */
+.footer-col li.footer-note { font: 400 12.5px/1.4 var(--sans); color: rgba(255, 255, 255, 0.38); margin-top: -3px; }
 .footer-logo { display: flex; align-items: center; gap: 9px; font: 400 21px/1 var(--display); color: #fff; margin-bottom: 14px; }
 .footer-logo .mark { width: 26px; height: 26px; border-radius: 8px; background: var(--indigo); color: #fff; display: inline-flex; align-items: center; justify-content: center; font: 400 15px/1 var(--display); }
 .footer-desc { font: 400 14.5px/1.6 var(--sans); color: rgba(255, 255, 255, 0.62); max-width: 320px; }
