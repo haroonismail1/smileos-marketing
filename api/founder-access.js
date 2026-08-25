@@ -2,7 +2,10 @@
 // the Supabase edge function (source of truth), then emails Haroon via
 // Resend. Email failure never fails the request — the row is already saved.
 const EDGE_FN = "https://xqhwnkeljvgrwexpwosm.supabase.co/functions/v1/founder-access";
-const NOTIFY_TO = "haroonismail87@gmail.com";
+// Destination for notifications. Kept in the environment, not in source: this
+// repository is public. If unset, the row is still stored by the edge function
+// above and only the notification email is skipped.
+const NOTIFY_TO = process.env.NOTIFY_TO;
 
 const field = (v, max) => String(v ?? "").trim().slice(0, max);
 
@@ -36,7 +39,7 @@ export default async function handler(req, res) {
     console.error("edge store failed", e);
   }
   if (!stored) {
-    return res.status(500).json({ error: "Something went wrong saving your request. Please email haroonismail87@gmail.com instead." });
+    return res.status(500).json({ error: "Something went wrong saving your request. Please <a href=\"/contact.html\">send us a message</a> instead." });
   }
 
   // 2. Email notification. Try the smileos.co.uk sender first; if the Resend
@@ -44,7 +47,8 @@ export default async function handler(req, res) {
   //    (allowed for delivery to the account owner's own address).
   const key = process.env.RESEND_API_KEY;
   let emailed = false;
-  if (key) {
+  if (!NOTIFY_TO) console.error("NOTIFY_TO not set — request stored, notification skipped");
+  if (key && NOTIFY_TO) {
     const text = [
       "New founder access request via www.smileos.co.uk",
       "",
