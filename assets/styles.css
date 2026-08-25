@@ -570,15 +570,16 @@ h1 .strike { color: rgba(255, 255, 255, 0.42); font-style: italic; }
 .offer-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 14px; }
 .offer-form .full { grid-column: 1 / -1; }
 .offer-form label { display: block; font: 600 13px/1 var(--sans); color: rgba(255, 255, 255, 0.75); margin-bottom: 7px; }
-.offer-form input, .offer-form select {
+.offer-form input, .offer-form select, .offer-form textarea {
   width: 100%; padding: 13px 14px;
   font: 400 15.5px/1.3 var(--sans); color: #fff;
   background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px; outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
-.offer-form input::placeholder { color: var(--on-dark-label); }
-.offer-form input:focus, .offer-form select:focus { border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(18, 183, 106, 0.22); }
+.offer-form textarea { min-height: 150px; resize: vertical; line-height: 1.55; }
+.offer-form input::placeholder, .offer-form textarea::placeholder { color: var(--on-dark-label); }
+.offer-form input:focus, .offer-form select:focus, .offer-form textarea:focus { border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(18, 183, 106, 0.22); }
 .offer-submit {
   width: 100%; padding: 19px; border: none; border-radius: var(--r-sm);
   font: 700 17px/1 var(--sans); color: var(--ink); background: var(--emerald);
@@ -589,6 +590,11 @@ h1 .strike { color: rgba(255, 255, 255, 0.42); font-style: italic; }
 .offer-submit:disabled { opacity: 0.55; cursor: not-allowed; }
 .offer-fineprint { text-align: center; font: 400 13.5px/1.6 var(--sans); color: rgba(255, 255, 255, 0.5); margin-top: 16px; }
 .offer-fineprint a { color: var(--on-dark-mute-2); text-decoration: underline; }
+/* Alternative contact route below the form. Sits on the dark section ground,
+   so it uses the same on-dark treatment as .offer-fineprint but reads a step
+   louder - it is a real second channel, not small print. */
+.contact-alt { text-align: center; font: 400 15.5px/1.65 var(--sans); color: var(--on-dark-mute); margin: 26px auto 0; max-width: 560px; }
+.contact-alt a { color: var(--emerald-hover); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-status { font: 400 15px/1.5 var(--sans); margin-top: 14px; text-align: center; }
 .form-status.ok { color: var(--emerald-hover); }
@@ -601,6 +607,9 @@ footer.site-footer { background: var(--indigo-deep); color: rgba(255, 255, 255, 
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
 .footer-col a { font: 400 14.5px/1.4 var(--sans); color: rgba(255, 255, 255, 0.62); transition: color 0.2s; }
 .footer-col a:hover { color: #fff; }
+/* Not a link — sets the response expectation next to the WhatsApp number so a
+   number on every page doesn't read as an always-on promise. */
+.footer-col li.footer-note { font: 400 12.5px/1.4 var(--sans); color: rgba(255, 255, 255, 0.38); margin-top: -3px; }
 .footer-logo { display: flex; align-items: center; gap: 9px; font: 400 21px/1 var(--display); color: #fff; margin-bottom: 14px; }
 .footer-logo .mark { width: 26px; height: 26px; border-radius: 8px; background: var(--indigo); color: #fff; display: inline-flex; align-items: center; justify-content: center; font: 400 15px/1 var(--display); }
 .footer-desc { font: 400 14.5px/1.6 var(--sans); color: rgba(255, 255, 255, 0.62); max-width: 320px; }

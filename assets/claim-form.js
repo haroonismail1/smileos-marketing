@@ -51,7 +51,7 @@
       button.disabled = false;
       errorBox.innerHTML = (err.message === 'Failed to fetch'
         ? 'Something went wrong sending your request.'
-        : err.message) + ' You can also email <a href="mailto:haroonismail87@gmail.com">haroonismail87@gmail.com</a> directly.';
+        : err.message) + ' You can also <a href="/contact.html">send us a message</a> instead.';
       errorBox.style.display = 'block';
     });
   });

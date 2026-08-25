@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Use — SmileOS</title>
-  <meta name="description" content="Terms of use for the SmileOS marketing website, including the founder offer terms. The SmileOS product itself is governed by a separate signed agreement." />
+  <title>Contact — SmileOS</title>
+  <meta name="description" content="Get in touch with SmileOS. Questions about the product, trust and security, pricing, or your data - straight to the founder, usually answered the same working day." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/styles.css" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="canonical" href="https://www.smileos.co.uk/terms.html" />
+  <link rel="canonical" href="https://www.smileos.co.uk/contact.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SmileOS" />
-  <meta property="og:title" content="Terms of Use — SmileOS" />
-  <meta property="og:description" content="Terms of use for the SmileOS marketing website, including the founder offer terms. The SmileOS product itself is governed by a separate signed agreement." />
-  <meta property="og:url" content="https://www.smileos.co.uk/terms.html" />
+  <meta property="og:title" content="Contact — SmileOS" />
+  <meta property="og:description" content="Get in touch with SmileOS. Questions about the product, trust and security, pricing, or your data - straight to the founder." />
+  <meta property="og:url" content="https://www.smileos.co.uk/contact.html" />
   <meta property="og:image" content="https://www.smileos.co.uk/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -41,7 +41,7 @@
     <span class="nav-spacer"></span>
     <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
     <a href="https://app.smileos.co.uk" class="nav-login">Log in</a>
-    <a href="/?src=terms#claim" class="nav-cta">Claim founder access</a>
+    <a href="/?src=contact#claim" class="nav-cta">Claim founder access</a>
   </nav>
   <div class="nav-panel" id="nav-panel-features" hidden>
     <div class="nav-panel-inner">
@@ -63,48 +63,71 @@
 
   <header class="page-hero">
     <div class="page-hero-inner">
-      <span class="hero-eyebrow">Terms · Plain English</span>
-      <h1>Terms of use. <em>The short version is the whole version.</em></h1>
-      <p class="lede">What you're agreeing to by using this website, how the founder offer works, and where the real product contract lives.</p>
+      <span class="hero-eyebrow">Contact · Straight to the founder</span>
+      <h1>Ask us anything. <em>A dentist answers.</em></h1>
+      <p class="lede">Product questions, trust and security, pricing, or anything about your data. Messages go directly to Haroon - usually answered the same working day.</p>
     </div>
   </header>
 
-  <div class="legal-wrap">
-    <p class="legal-updated">Last updated: 19 August 2026</p>
+  <section class="dark" id="contact">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-tag">Get in touch</span>
+        <h2 class="section-title">No support queue. <em>No chatbot.</em></h2>
+        <p class="section-sub">There is one person on the other end of this form, and he is a GDC-registered clinical director. Please don't include patient-identifiable information.</p>
+      </div>
 
-    <h2>Who we are and what these terms cover</h2>
-    <p>This website (www.smileos.co.uk) is operated by <strong>Dr Hi Ltd, trading as SmileOS</strong>, a company registered in Scotland under number <strong>SC728925</strong>, with its registered office at Cornerstone House, Station Road, Selkirk, Scotland, TD7 5DJ. By using this website you accept these terms of use. They cover the website only.</p>
-    <p><strong>The SmileOS product is governed by a separate agreement.</strong> Before your practice starts using SmileOS you will receive and sign the subscription terms and a Data Processing Agreement (DPA). Nothing on this website forms part of that contract, and where the two differ, the signed agreement wins.</p>
+      <div class="offer-card">
+        <form class="claim-form" id="contact-form" method="post" action="/api/contact" novalidate>
+          <div class="offer-form">
+            <div>
+              <label for="ct-name">Your name *</label>
+              <input id="ct-name" name="name" type="text" autocomplete="name" required placeholder="Dr Jane Smith" />
+            </div>
+            <div>
+              <label for="ct-email">Email *</label>
+              <input id="ct-email" name="email" type="email" autocomplete="email" required placeholder="you@yourpractice.co.uk" />
+            </div>
+            <div>
+              <label for="ct-practice">Practice name</label>
+              <input id="ct-practice" name="practice_name" type="text" autocomplete="organization" placeholder="Your practice" />
+            </div>
+            <div>
+              <label for="ct-topic">What's it about?</label>
+              <select id="ct-topic" name="topic">
+                <option value="">Choose one</option>
+                <option value="Product question">Product question</option>
+                <option value="Trust and security">Trust &amp; security</option>
+                <option value="Pricing">Pricing</option>
+                <option value="Data protection request">Data protection request</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="ct-message">Your message *</label>
+              <textarea id="ct-message" name="message" required placeholder="What would you like to know?"></textarea>
+            </div>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="ct-website">Website</label>
+            <input id="ct-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="form-status err" id="contact-error" role="alert" style="display: none;"></div>
+          <button type="submit" class="offer-submit">Send message</button>
+        </form>
+        <div class="form-status ok" id="contact-success" style="display: none;">
+          <strong style="display: block; font-size: 18px; margin-bottom: 8px;">Message sent ✓</strong>
+          Thanks - it's gone straight to Haroon, and he'll reply to the email address you gave, usually within the same working day.
+        </div>
+        <p class="offer-fineprint">We use what you send here only to answer you. By sending this form you agree to our <a href="/privacy.html">privacy policy</a>. Looking for the founder offer instead? <a href="/?src=contact#claim">Claim founder access</a>.</p>
+      </div>
 
-    <h2>The founder offer</h2>
-    <ul>
-      <li>The founder cohort offer - a 90-day free trial with no card required, and founder pricing locked in for life - is available to a <strong>limited cohort of UK dental practices</strong>, confirmed with you before you commit to anything.</li>
-      <li>Founder pricing applies to the <strong>original signing practice</strong> for the lifetime of that account.</li>
-      <li>We may change or withdraw the offer for <strong>new</strong> sign-ups at any time; that never affects terms already agreed with a practice.</li>
-    </ul>
-
-    <h2>Not clinical or professional advice</h2>
-    <p>Content on this website is general product information for dental professionals. It is not clinical, legal, or regulatory advice, and it doesn't replace your own professional judgement or your practice's own compliance obligations.</p>
-
-    <h2>Using this site</h2>
-    <p>You agree not to misuse the site - including attempting to gain unauthorised access, scraping content at scale, submitting false or automated enquiries, or introducing anything malicious. Please don't include patient-identifiable information in any form or email.</p>
-
-    <h2>Our content</h2>
-    <p>The content, design, and branding on this site belong to Dr Hi Ltd. You're welcome to link to the site and to share pages with colleagues; please don't copy or republish substantial parts without asking first.</p>
-
-    <h2>Accuracy</h2>
-    <p>We keep this site honest - including being explicit on our <a href="/trust.html">Trust page</a> about what's live today versus what's coming. Product features evolve, and we may update content at any time. Anything described as coming or planned is a statement of intent, not a contractual promise.</p>
-
-    <h2>Liability</h2>
-    <p>Nothing in these terms excludes or limits liability that cannot be excluded under the law of England and Wales, including for death or personal injury caused by negligence, or for fraud. Subject to that, the website is provided "as is": we are not liable for losses arising from your use of, or inability to use, this website. Liability relating to the SmileOS product is dealt with in the signed subscription agreement, not these terms.</p>
-
-    <h2>Governing law</h2>
-    <p>These terms are governed by the law of England and Wales, and the courts of England and Wales have exclusive jurisdiction.</p>
-
-    <h2>Contact</h2>
-    <p>Questions about these terms: <a href="/contact.html">get in touch</a>.</p>
-
-  </div>
+      <p class="contact-alt">Rather use WhatsApp? Message the founder directly on
+        <a href="https://wa.me/447457427086" rel="noopener">07457&nbsp;427&nbsp;086</a> -
+        weekdays, usually same day.
+        Please don't send patient-identifiable information by WhatsApp.</p>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -134,7 +157,7 @@
         <li class="footer-note">Weekdays, usually same day</li>
         <li><a href="/privacy.html">Privacy policy</a></li>
         <li><a href="/terms.html">Terms of use</a></li>
-        <li><a href="/?src=terms#claim">Claim founder access</a></li>
+        <li><a href="/?src=contact#claim">Claim founder access</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
@@ -144,5 +167,6 @@
   </footer>
 
   <script src="/assets/nav.js"></script>
+  <script src="/assets/contact-form.js"></script>
 </body>
 </html>
