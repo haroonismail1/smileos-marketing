@@ -590,6 +590,11 @@ h1 .strike { color: rgba(255, 255, 255, 0.42); font-style: italic; }
 .offer-submit:disabled { opacity: 0.55; cursor: not-allowed; }
 .offer-fineprint { text-align: center; font: 400 13.5px/1.6 var(--sans); color: rgba(255, 255, 255, 0.5); margin-top: 16px; }
 .offer-fineprint a { color: var(--on-dark-mute-2); text-decoration: underline; }
+/* Alternative contact route below the form. Sits on the dark section ground,
+   so it uses the same on-dark treatment as .offer-fineprint but reads a step
+   louder - it is a real second channel, not small print. */
+.contact-alt { text-align: center; font: 400 15.5px/1.65 var(--sans); color: var(--on-dark-mute); margin: 26px auto 0; max-width: 560px; }
+.contact-alt a { color: var(--emerald-hover); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-status { font: 400 15px/1.5 var(--sans); margin-top: 14px; text-align: center; }
 .form-status.ok { color: var(--emerald-hover); }
