@@ -105,6 +105,20 @@ button { font-family: inherit; cursor: pointer; }
 
 .font-display { font-family: var(--display); font-weight: 400; letter-spacing: -0.02em; }
 
+/* SKIP LINK — offscreen until focused, so keyboard and screen-reader users can
+   jump the urgency strip and the two-level nav instead of tabbing through it. */
+.skip-link {
+  position: absolute; top: 8px; left: 50%; z-index: 200;
+  transform: translateX(-50%) translateY(-150%);
+  padding: 12px 22px; border-radius: var(--r-sm);
+  background: var(--indigo); color: #fff;
+  font: 600 15px/1 var(--sans); text-decoration: none;
+  transition: transform 0.15s;
+}
+.skip-link:focus { transform: translateX(-50%) translateY(0); outline: 3px solid var(--emerald); outline-offset: 2px; }
+/* The hero is only focusable to receive the skip; don't show a ring for it. */
+#main:focus { outline: none; }
+
 /* URGENCY STRIP */
 .urgency-strip {
   background: var(--ink); color: rgba(255, 255, 255, 0.9);
